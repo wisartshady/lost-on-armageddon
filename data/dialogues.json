@@ -1,0 +1,233 @@
+{
+ "intro": {
+  "lines": [
+   {
+    "speaker": "NAME_VAYNARA_THOUGHT",
+    "text": "D_INTRO_1",
+    "voice": "d_intro_1"
+   },
+   {
+    "speaker": "NAME_VAYNARA_THOUGHT",
+    "text": "D_INTRO_2",
+    "voice": "d_intro_2"
+   },
+   {
+    "speaker": "NAME_VAYNARA_THOUGHT",
+    "text": "D_INTRO_3",
+    "voice": "d_intro_3"
+   }
+  ],
+  "on_end": [
+   "objective:OBJ_TEA:tea_house_door"
+  ]
+ },
+ "poster_eliz": {
+  "lines": [
+   {
+    "speaker": "NAME_VAYNARA_THOUGHT",
+    "text": "D_POSTER_1",
+    "voice": "d_poster_1"
+   },
+   {
+    "speaker": "NAME_VAYNARA_THOUGHT",
+    "text": "D_POSTER_2",
+    "voice": "d_poster_2"
+   }
+  ]
+ },
+ "vtech_screen": {
+  "lines": [
+   {
+    "speaker": "NAME_VAYNARA_THOUGHT",
+    "text": "D_VTECH_1",
+    "voice": "d_vtech_1"
+   },
+   {
+    "speaker": "NAME_VAYNARA_THOUGHT",
+    "text": "D_VTECH_2",
+    "voice": "d_vtech_2"
+   }
+  ]
+ },
+ "protest": {
+  "lines": [
+   {
+    "speaker": "NAME_VAYNARA_THOUGHT",
+    "text": "D_PROTEST_1",
+    "voice": "d_protest_1"
+   },
+   {
+    "speaker": "NAME_VAYNARA_THOUGHT",
+    "text": "D_PROTEST_2",
+    "voice": "d_protest_2"
+   }
+  ]
+ },
+ "gus": {
+  "lines": [
+   {
+    "speaker": "NAME_GUS",
+    "text": "D_GUS_1",
+    "voice": "d_gus_1",
+    "npc": "gus"
+   },
+   {
+    "speaker": "NAME_VAYNARA",
+    "text": "D_GUS_2",
+    "voice": "d_gus_2"
+   },
+   {
+    "speaker": "NAME_GUS",
+    "text": "D_GUS_3",
+    "voice": "d_gus_3",
+    "npc": "gus",
+    "choices": [
+     {
+      "text": "D_GUS_C1",
+      "goto": "gus_a"
+     },
+     {
+      "text": "D_GUS_C2",
+      "goto": "gus_b"
+     }
+    ]
+   }
+  ],
+  "on_end": [
+   "flag:met_gus"
+  ]
+ },
+ "gus_a": {
+  "lines": [
+   {
+    "speaker": "NAME_GUS",
+    "text": "D_GUS_A1",
+    "voice": "d_gus_a1",
+    "npc": "gus"
+   },
+   {
+    "speaker": "NAME_VAYNARA",
+    "text": "D_GUS_A2",
+    "voice": "d_gus_a2"
+   }
+  ]
+ },
+ "gus_b": {
+  "lines": [
+   {
+    "speaker": "NAME_GUS",
+    "text": "D_GUS_B1",
+    "voice": "d_gus_b1",
+    "npc": "gus"
+   }
+  ]
+ },
+ "gus_repeat": {
+  "lines": [
+   {
+    "speaker": "NAME_GUS",
+    "text": "D_GUS_R",
+    "voice": "d_gus_r",
+    "npc": "gus"
+   }
+  ]
+ },
+ "lin": {
+  "lines": [
+   {
+    "speaker": "NAME_LIN",
+    "text": "D_LIN_1",
+    "voice": "d_lin_1",
+    "npc": "lin"
+   },
+   {
+    "speaker": "NAME_VAYNARA",
+    "text": "D_LIN_2",
+    "voice": "d_lin_2"
+   },
+   {
+    "speaker": "NAME_LIN",
+    "text": "D_LIN_3",
+    "voice": "d_lin_3",
+    "npc": "lin"
+   },
+   {
+    "speaker": "NAME_LIN",
+    "text": "D_LIN_4",
+    "voice": "d_lin_4",
+    "npc": "lin"
+   },
+   {
+    "speaker": "NAME_VAYNARA",
+    "text": "D_LIN_5",
+    "voice": "d_lin_5"
+   },
+   {
+    "speaker": "NAME_LIN",
+    "text": "D_LIN_6",
+    "voice": "d_lin_6",
+    "npc": "lin",
+    "choices": [
+     {
+      "text": "D_LIN_C1",
+      "goto": "lin_a"
+     },
+     {
+      "text": "D_LIN_C2",
+      "goto": "lin_b"
+     }
+    ]
+   }
+  ]
+ },
+ "lin_a": {
+  "lines": [
+   {
+    "speaker": "NAME_LIN",
+    "text": "D_LIN_A1",
+    "voice": "d_lin_a1",
+    "npc": "lin"
+   }
+  ],
+  "on_end": [
+   "flag:took_job",
+   "flag:met_lin",
+   "objective:OBJ_END:",
+   "toast:END_TOAST"
+  ]
+ },
+ "lin_b": {
+  "lines": [
+   {
+    "speaker": "NAME_LIN",
+    "text": "D_LIN_B1",
+    "voice": "d_lin_b1",
+    "npc": "lin"
+   }
+  ],
+  "on_end": [
+   "flag:met_lin",
+   "objective:OBJ_END:",
+   "toast:END_TOAST"
+  ]
+ },
+ "lin_repeat": {
+  "lines": [
+   {
+    "speaker": "NAME_LIN",
+    "text": "D_LIN_R",
+    "voice": "d_lin_r",
+    "npc": "lin"
+   }
+  ]
+ },
+ "collapse": {
+  "lines": [
+   {
+    "speaker": "NAME_VAYNARA_THOUGHT",
+    "text": "D_COLLAPSE_1",
+    "voice": "d_collapse_1"
+   }
+  ]
+ }
+}

@@ -1,0 +1,130 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Lost on Armageddon"
+config/description="Lost on Armageddon - v0.1 prototip (Oxwag City)"
+config/version="0.2.3"
+run/main_scene="res://scenes/main.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/bg_color=Color(0.02, 0.02, 0.03, 1)
+boot_splash/show_image=false
+config/icon="res://icon.png"
+
+[autoload]
+
+Settings="*res://scripts/settings.gd"
+Loc="*res://scripts/loc.gd"
+Game="*res://scripts/game.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[gui]
+
+theme/custom_font="res://assets/fonts/Inter-Regular.otf"
+
+[internationalization]
+
+locale/fallback="tr"
+
+[physics]
+
+common/max_physics_steps_per_frame=4
+common/physics_interpolation=true
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_s3tc_bptc=true
+lights_and_shadows/directional_shadow/size=2048
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality=1
+environment/defaults/default_clear_color=Color(0.02, 0.022, 0.03, 1)
+
+[shader_globals]
+
+macro_noise={
+"type": "sampler2D",
+"value": "res://assets/textures/macro_noise.png"
+}
+env_map_day={
+"type": "sampler2D",
+"value": "res://assets/textures/env/bethnal_green_entrance.png"
+}
+daylight={
+"type": "float",
+"value": 0.0
+}
+lamp_power={
+"type": "float",
+"value": 1.0
+}
+rain_amount={
+"type": "float",
+"value": 0.7
+}
+day_sky={
+"type": "vec4",
+"value": Vector4(0.5, 0.53, 0.58, 0.9)
+}
+env_map={
+"type": "sampler2D",
+"value": "res://assets/textures/env/cobblestone_street_night.png"
+}
+light_field={
+"type": "sampler2D",
+"value": "res://assets/textures/light_field.png"
+}
+light_field_rect={
+"type": "vec4",
+"value": Vector4(-160, -160, 320, 320)
+}
+light_field_strength={
+"type": "float",
+"value": 1.35
+}
+wetness={
+"type": "float",
+"value": 1.0
+}
+lightning={
+"type": "float",
+"value": 0.0
+}
+emp_zone_0={
+"type": "vec4",
+"value": Vector4(0, -1000, 0, 0)
+}
+emp_zone_1={
+"type": "vec4",
+"value": Vector4(0, -1000, 0, 0)
+}
+emp_zone_2={
+"type": "vec4",
+"value": Vector4(0, -1000, 0, 0)
+}
+emp_zone_3={
+"type": "vec4",
+"value": Vector4(0, -1000, 0, 0)
+}
+window_detail={
+"type": "float",
+"value": 1.0
+}
+fog_far_color={
+"type": "color",
+"value": Color(0.07, 0.065, 0.07, 1)
+}

@@ -1,0 +1,65 @@
+{
+ "vtech_screen": {
+  "marker": "vtech_screen",
+  "r": 14.0,
+  "chance": 0.55,
+  "cooldown": 150,
+  "lines": [
+   "B_VTECH_1",
+   "B_VTECH_2",
+   "B_VTECH_3",
+   "B_VTECH_4",
+   "B_VTECH_5",
+   "B_VTECH_6",
+   "B_VTECH_7",
+   "B_VTECH_8"
+  ]
+ },
+ "protest": {
+  "p": [
+   -9.4,
+   0.0,
+   30.0
+  ],
+  "r": 4.0,
+  "chance": 0.6,
+  "cooldown": 200,
+  "lines": [
+   "B_PROTEST_1",
+   "B_PROTEST_2",
+   "B_PROTEST_3",
+   "B_PROTEST_4"
+  ]
+ },
+ "gate": {
+  "marker": "gate",
+  "r": 7.0,
+  "chance": 0.5,
+  "cooldown": 300,
+  "lines": [
+   "B_GATE_1",
+   "B_GATE_2",
+   "B_GATE_3"
+  ]
+ },
+ "metro": {
+  "marker": "metro",
+  "r": 5.0,
+  "chance": 0.45,
+  "cooldown": 300,
+  "lines": [
+   "B_METRO_1",
+   "B_METRO_2"
+  ]
+ },
+ "hotel_noir": {
+  "marker": "hotel_noir",
+  "r": 6.0,
+  "chance": 0.45,
+  "cooldown": 300,
+  "lines": [
+   "B_NOIR_1",
+   "B_NOIR_2"
+  ]
+ }
+}

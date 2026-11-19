@@ -1,0 +1,276 @@
+{
+ "surf": [
+  {
+   "name": "brick_red",
+   "uv_scale": 1.0,
+   "rough_dry": 0.88,
+   "rough_wet": 0.45,
+   "porosity": 0.6,
+   "normal_depth": 1.2,
+   "grime": 0.4,
+   "specular": 0.4,
+   "reflect": 0.0
+  },
+  {
+   "name": "brick_dark",
+   "uv_scale": 0.9523809523809523,
+   "rough_dry": 0.9,
+   "rough_wet": 0.45,
+   "porosity": 0.6,
+   "normal_depth": 1.2,
+   "grime": 0.4,
+   "specular": 0.4,
+   "reflect": 0.0
+  },
+  {
+   "name": "brick_yellow",
+   "uv_scale": 0.5,
+   "rough_dry": 0.88,
+   "rough_wet": 0.45,
+   "porosity": 0.6,
+   "normal_depth": 1.2,
+   "grime": 0.4,
+   "specular": 0.4,
+   "reflect": 0.0
+  },
+  {
+   "name": "stone_deco",
+   "uv_scale": 0.3333333333333333,
+   "rough_dry": 0.85,
+   "rough_wet": 0.4,
+   "porosity": 0.5,
+   "normal_depth": 1.0,
+   "grime": 0.35,
+   "specular": 0.45,
+   "reflect": 0.0
+  },
+  {
+   "name": "plaster",
+   "uv_scale": 1.0,
+   "rough_dry": 0.9,
+   "rough_wet": 0.5,
+   "porosity": 0.5,
+   "normal_depth": 0.8,
+   "grime": 0.4,
+   "specular": 0.4,
+   "reflect": 0.0
+  },
+  {
+   "name": "plaster_cn",
+   "uv_scale": 0.5,
+   "rough_dry": 0.9,
+   "rough_wet": 0.5,
+   "porosity": 0.5,
+   "normal_depth": 0.8,
+   "grime": 0.35,
+   "specular": 0.4,
+   "reflect": 0.0
+  },
+  {
+   "name": "concrete",
+   "uv_scale": 0.37037037037037035,
+   "rough_dry": 0.88,
+   "rough_wet": 0.45,
+   "porosity": 0.5,
+   "normal_depth": 0.9,
+   "grime": 0.35,
+   "specular": 0.45,
+   "reflect": 0.0
+  },
+  {
+   "name": "asphalt",
+   "uv_scale": 0.3333333333333333,
+   "rough_dry": 0.92,
+   "rough_wet": 0.12,
+   "porosity": 0.55,
+   "normal_depth": 1.0,
+   "grime": 0.0,
+   "specular": 0.5,
+   "reflect": 1.2
+  },
+  {
+   "name": "sidewalk",
+   "uv_scale": 0.5555555555555556,
+   "rough_dry": 0.85,
+   "rough_wet": 0.18,
+   "porosity": 0.5,
+   "normal_depth": 1.0,
+   "grime": 0.0,
+   "specular": 0.5,
+   "reflect": 0.8
+  },
+  {
+   "name": "granite",
+   "uv_scale": 0.5555555555555556,
+   "rough_dry": 0.7,
+   "rough_wet": 0.15,
+   "porosity": 0.3,
+   "normal_depth": 0.8,
+   "grime": 0.0,
+   "specular": 0.5,
+   "reflect": 0.6
+  },
+  {
+   "name": "setts",
+   "uv_scale": 0.4,
+   "rough_dry": 0.8,
+   "rough_wet": 0.12,
+   "porosity": 0.5,
+   "normal_depth": 1.4,
+   "grime": 0.0,
+   "specular": 0.5,
+   "reflect": 1.0
+  },
+  {
+   "name": "metal",
+   "uv_scale": 1.0,
+   "rough_dry": 0.55,
+   "rough_wet": 0.3,
+   "porosity": 0.1,
+   "normal_depth": 0.6,
+   "grime": 0.1,
+   "specular": 0.5,
+   "reflect": 0.0
+  },
+  {
+   "name": "metal_clean",
+   "uv_scale": 1.0,
+   "rough_dry": 0.45,
+   "rough_wet": 0.25,
+   "porosity": 0.05,
+   "normal_depth": 0.4,
+   "grime": 0.1,
+   "specular": 0.5,
+   "reflect": 0.0
+  },
+  {
+   "name": "corrugated",
+   "uv_scale": 0.8928571428571428,
+   "rough_dry": 0.55,
+   "rough_wet": 0.3,
+   "porosity": 0.1,
+   "normal_depth": 1.0,
+   "grime": 0.1,
+   "specular": 0.5,
+   "reflect": 0.0
+  },
+  {
+   "name": "wood",
+   "uv_scale": 0.5,
+   "rough_dry": 0.8,
+   "rough_wet": 0.5,
+   "porosity": 0.4,
+   "normal_depth": 0.8,
+   "grime": 0.2,
+   "specular": 0.35,
+   "reflect": 0.0
+  },
+  {
+   "name": "wood_red",
+   "uv_scale": 0.625,
+   "rough_dry": 0.7,
+   "rough_wet": 0.45,
+   "porosity": 0.3,
+   "normal_depth": 0.7,
+   "grime": 0.15,
+   "specular": 0.4,
+   "reflect": 0.0
+  },
+  {
+   "name": "roof",
+   "uv_scale": 0.25,
+   "rough_dry": 0.92,
+   "rough_wet": 0.35,
+   "porosity": 0.5,
+   "normal_depth": 0.8,
+   "grime": 0.0,
+   "specular": 0.4,
+   "reflect": 0.4
+  },
+  {
+   "name": "shutter",
+   "uv_scale": 0.7299270072992701,
+   "rough_dry": 0.55,
+   "rough_wet": 0.3,
+   "porosity": 0.1,
+   "normal_depth": 1.0,
+   "grime": 0.2,
+   "specular": 0.5,
+   "reflect": 0.0
+  },
+  {
+   "name": "awning",
+   "uv_scale": 0.5,
+   "rough_dry": 0.9,
+   "rough_wet": 0.7,
+   "porosity": 0.4,
+   "normal_depth": 0.5,
+   "grime": 0.0,
+   "specular": 0.3,
+   "reflect": 0.0
+  },
+  {
+   "name": "fabric",
+   "uv_scale": 2.0,
+   "rough_dry": 0.95,
+   "rough_wet": 0.8,
+   "porosity": 0.4,
+   "normal_depth": 0.5,
+   "grime": 0.0,
+   "specular": 0.3,
+   "reflect": 0.0
+  },
+  {
+   "name": "flat",
+   "uv_scale": 1.0,
+   "rough_dry": 0.6,
+   "rough_wet": 0.3,
+   "porosity": 0.1,
+   "normal_depth": 0.0,
+   "grime": 0.0,
+   "specular": 0.5,
+   "reflect": 0.0
+  },
+  {
+   "name": "dirt",
+   "uv_scale": 0.4,
+   "rough_dry": 0.95,
+   "rough_wet": 0.4,
+   "porosity": 0.8,
+   "normal_depth": 1.2,
+   "grime": 0.0,
+   "specular": 0.35,
+   "reflect": 0.5
+  }
+ ],
+ "cut": [
+  {
+   "name": "railing",
+   "uv_scale": 1.0
+  },
+  {
+   "name": "grating",
+   "uv_scale": 1.0
+  },
+  {
+   "name": "chainlink",
+   "uv_scale": 0.5
+  },
+  {
+   "name": "paint",
+   "uv_scale": 1.0
+  },
+  {
+   "name": "manhole",
+   "uv_scale": 1.0
+  },
+  {
+   "name": "awning",
+   "uv_scale": 0.5
+  },
+  {
+   "name": "corrugated",
+   "uv_scale": 0.5
+  }
+ ]
+}

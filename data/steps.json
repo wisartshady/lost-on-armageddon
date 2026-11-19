@@ -1,0 +1,30 @@
+{
+ "concrete": {
+  "count": 26,
+  "centroid_hz": 3242
+ },
+ "stone": {
+  "count": 8,
+  "centroid_hz": 2548
+ },
+ "wood": {
+  "count": 14,
+  "centroid_hz": 2082
+ },
+ "water": {
+  "count": 10,
+  "centroid_hz": 6505
+ },
+ "grass": {
+  "count": 5,
+  "centroid_hz": 5772
+ },
+ "gravel": {
+  "count": 6,
+  "centroid_hz": 4634
+ },
+ "mud": {
+  "count": 6,
+  "centroid_hz": 5447
+ }
+}

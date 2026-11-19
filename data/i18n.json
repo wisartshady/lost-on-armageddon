@@ -1,0 +1,1227 @@
+{
+ "GAME_TITLE": {
+  "tr": "LOST ON ARMAGEDDON",
+  "en": "LOST ON ARMAGEDDON",
+  "de": "LOST ON ARMAGEDDON"
+ },
+ "MENU_SUBTITLE": {
+  "tr": "v0.2.2 · Prototip",
+  "en": "v0.2.2 · Prototype",
+  "de": "v0.2.2 · Prototyp"
+ },
+ "MENU_NEW": {
+  "tr": "Yeni Oyun",
+  "en": "New Game",
+  "de": "Neues Spiel"
+ },
+ "MENU_CONTINUE": {
+  "tr": "Devam Et",
+  "en": "Continue",
+  "de": "Fortsetzen"
+ },
+ "MENU_SETTINGS": {
+  "tr": "Ayarlar",
+  "en": "Settings",
+  "de": "Einstellungen"
+ },
+ "MENU_QUIT": {
+  "tr": "Çıkış",
+  "en": "Quit",
+  "de": "Beenden"
+ },
+ "MENU_RESUME": {
+  "tr": "Oyuna Dön",
+  "en": "Resume",
+  "de": "Weiterspielen"
+ },
+ "MENU_MAIN": {
+  "tr": "Ana Menü",
+  "en": "Main Menu",
+  "de": "Hauptmenü"
+ },
+ "MENU_PAUSED": {
+  "tr": "DURAKLATILDI",
+  "en": "PAUSED",
+  "de": "PAUSIERT"
+ },
+ "MENU_CREDITS": {
+  "tr": "Karakterler ve animasyonlar: Quaternius (CC0) · Godot Engine ile yapıldı",
+  "en": "Characters and animations: Quaternius (CC0) · Made with Godot Engine",
+  "de": "Figuren und Animationen: Quaternius (CC0) · Erstellt mit der Godot Engine"
+ },
+ "LOADING": {
+  "tr": "Yükleniyor...",
+  "en": "Loading...",
+  "de": "Wird geladen..."
+ },
+ "LOADING_CITY": {
+  "tr": "Oxwag City inşa ediliyor...",
+  "en": "Building Oxwag City...",
+  "de": "Oxwag City wird errichtet..."
+ },
+ "SET_TAB_GRAPHICS": {
+  "tr": "Grafik",
+  "en": "Graphics",
+  "de": "Grafik"
+ },
+ "SET_TAB_DISPLAY": {
+  "tr": "Ekran",
+  "en": "Display",
+  "de": "Anzeige"
+ },
+ "SET_TAB_AUDIO": {
+  "tr": "Ses",
+  "en": "Audio",
+  "de": "Audio"
+ },
+ "SET_TAB_CONTROLS": {
+  "tr": "Kontroller",
+  "en": "Controls",
+  "de": "Steuerung"
+ },
+ "SET_TAB_LANGUAGE": {
+  "tr": "Dil",
+  "en": "Language",
+  "de": "Sprache"
+ },
+ "SET_BACK": {
+  "tr": "Geri",
+  "en": "Back",
+  "de": "Zurück"
+ },
+ "SET_DEFAULTS": {
+  "tr": "Varsayılanlar",
+  "en": "Defaults",
+  "de": "Standard"
+ },
+ "SET_PRESET": {
+  "tr": "Grafik ön ayarı",
+  "en": "Graphics preset",
+  "de": "Grafik-Voreinstellung"
+ },
+ "PRESET_0": {
+  "tr": "Çok Düşük",
+  "en": "Very Low",
+  "de": "Sehr niedrig"
+ },
+ "PRESET_1": {
+  "tr": "Düşük",
+  "en": "Low",
+  "de": "Niedrig"
+ },
+ "PRESET_2": {
+  "tr": "Orta",
+  "en": "Medium",
+  "de": "Mittel"
+ },
+ "PRESET_3": {
+  "tr": "Yüksek",
+  "en": "High",
+  "de": "Hoch"
+ },
+ "PRESET_4": {
+  "tr": "Ultra",
+  "en": "Ultra",
+  "de": "Ultra"
+ },
+ "PRESET_CUSTOM": {
+  "tr": "Özel",
+  "en": "Custom",
+  "de": "Benutzerdefiniert"
+ },
+ "SET_RENDER_SCALE": {
+  "tr": "Çözünürlük ölçeği",
+  "en": "Resolution scale",
+  "de": "Auflösungsskalierung"
+ },
+ "SET_DYNRES": {
+  "tr": "Dinamik çözünürlük (60 FPS hedefi)",
+  "en": "Dynamic resolution (60 FPS target)",
+  "de": "Dynamische Auflösung (Ziel 60 FPS)"
+ },
+ "SET_VIEWDIST": {
+  "tr": "Görüş mesafesi",
+  "en": "View distance",
+  "de": "Sichtweite"
+ },
+ "SET_SHADOWS": {
+  "tr": "Gölgeler",
+  "en": "Shadows",
+  "de": "Schatten"
+ },
+ "SET_LIGHTS": {
+  "tr": "Dinamik ışık sayısı",
+  "en": "Dynamic lights",
+  "de": "Dynamische Lichter"
+ },
+ "SET_GLOW": {
+  "tr": "Parıltı (bloom)",
+  "en": "Glow (bloom)",
+  "de": "Leuchten (Bloom)"
+ },
+ "SET_FOG": {
+  "tr": "Sis",
+  "en": "Fog",
+  "de": "Nebel"
+ },
+ "FOG_0": {
+  "tr": "Basit",
+  "en": "Simple",
+  "de": "Einfach"
+ },
+ "FOG_1": {
+  "tr": "Hacimsel (Vulkan)",
+  "en": "Volumetric (Vulkan)",
+  "de": "Volumetrisch (Vulkan)"
+ },
+ "SET_RAIN": {
+  "tr": "Yağmur yoğunluğu",
+  "en": "Rain density",
+  "de": "Regendichte"
+ },
+ "RAIN_0": {
+  "tr": "Kapalı",
+  "en": "Off",
+  "de": "Aus"
+ },
+ "RAIN_1": {
+  "tr": "Az",
+  "en": "Light",
+  "de": "Leicht"
+ },
+ "RAIN_2": {
+  "tr": "Normal",
+  "en": "Normal",
+  "de": "Normal"
+ },
+ "RAIN_3": {
+  "tr": "Yoğun",
+  "en": "Heavy",
+  "de": "Stark"
+ },
+ "SET_AA": {
+  "tr": "Kenar yumuşatma",
+  "en": "Anti-aliasing",
+  "de": "Kantenglättung"
+ },
+ "AA_0": {
+  "tr": "Kapalı",
+  "en": "Off",
+  "de": "Aus"
+ },
+ "AA_1": {
+  "tr": "FXAA",
+  "en": "FXAA",
+  "de": "FXAA"
+ },
+ "AA_2": {
+  "tr": "MSAA 2x",
+  "en": "MSAA 2x",
+  "de": "MSAA 2x"
+ },
+ "AA_3": {
+  "tr": "MSAA 4x",
+  "en": "MSAA 4x",
+  "de": "MSAA 4x"
+ },
+ "AA_4": {
+  "tr": "TAA (Vulkan)",
+  "en": "TAA (Vulkan)",
+  "de": "TAA (Vulkan)"
+ },
+ "SET_SSAO": {
+  "tr": "Ortam gölgesi (SSAO, Vulkan)",
+  "en": "Ambient occlusion (SSAO, Vulkan)",
+  "de": "Umgebungsverdeckung (SSAO, Vulkan)"
+ },
+ "SET_SSR": {
+  "tr": "Islak yansımalar (SSR, Vulkan)",
+  "en": "Wet reflections (SSR, Vulkan)",
+  "de": "Nasse Spiegelungen (SSR, Vulkan)"
+ },
+ "SET_WINDOWS": {
+  "tr": "Pencere içleri",
+  "en": "Window interiors",
+  "de": "Fenster-Innenräume"
+ },
+ "WIN_0": {
+  "tr": "Basit",
+  "en": "Simple",
+  "de": "Einfach"
+ },
+ "WIN_1": {
+  "tr": "Detaylı",
+  "en": "Detailed",
+  "de": "Detailliert"
+ },
+ "SET_TEXQ": {
+  "tr": "Doku kalitesi",
+  "en": "Texture quality",
+  "de": "Texturqualität"
+ },
+ "SET_PARTICLES": {
+  "tr": "Parçacıklar (buhar, kıvılcım)",
+  "en": "Particles (steam, sparks)",
+  "de": "Partikel (Dampf, Funken)"
+ },
+ "LVL_0": {
+  "tr": "Kapalı",
+  "en": "Off",
+  "de": "Aus"
+ },
+ "LVL_1": {
+  "tr": "Düşük",
+  "en": "Low",
+  "de": "Niedrig"
+ },
+ "LVL_2": {
+  "tr": "Orta",
+  "en": "Medium",
+  "de": "Mittel"
+ },
+ "LVL_3": {
+  "tr": "Yüksek",
+  "en": "High",
+  "de": "Hoch"
+ },
+ "SET_RENDERER": {
+  "tr": "Grafik motoru",
+  "en": "Renderer",
+  "de": "Renderer"
+ },
+ "REND_COMPAT": {
+  "tr": "Uyumluluk (OpenGL)",
+  "en": "Compatibility (OpenGL)",
+  "de": "Kompatibilität (OpenGL)"
+ },
+ "REND_VULKAN": {
+  "tr": "Vulkan (yeni kartlar)",
+  "en": "Vulkan (newer GPUs)",
+  "de": "Vulkan (neuere GPUs)"
+ },
+ "SET_RESTART_NOTE": {
+  "tr": "Grafik motoru değişikliği oyunu yeniden başlatınca uygulanır.",
+  "en": "Renderer changes take effect after restarting the game.",
+  "de": "Renderer-Änderungen werden nach einem Neustart wirksam."
+ },
+ "SET_WINDOW_MODE": {
+  "tr": "Ekran modu",
+  "en": "Window mode",
+  "de": "Fenstermodus"
+ },
+ "WM_0": {
+  "tr": "Pencere",
+  "en": "Windowed",
+  "de": "Fenster"
+ },
+ "WM_1": {
+  "tr": "Tam ekran",
+  "en": "Fullscreen",
+  "de": "Vollbild"
+ },
+ "WM_2": {
+  "tr": "Özel tam ekran",
+  "en": "Exclusive fullscreen",
+  "de": "Exklusives Vollbild"
+ },
+ "SET_VSYNC": {
+  "tr": "Dikey senkronizasyon (VSync)",
+  "en": "VSync",
+  "de": "VSync"
+ },
+ "SET_FPS_LIMIT": {
+  "tr": "FPS sınırı",
+  "en": "FPS limit",
+  "de": "FPS-Limit"
+ },
+ "FPS_0": {
+  "tr": "Sınırsız",
+  "en": "Unlimited",
+  "de": "Unbegrenzt"
+ },
+ "SET_SHOW_FPS": {
+  "tr": "FPS göstergesi",
+  "en": "Show FPS",
+  "de": "FPS anzeigen"
+ },
+ "SET_BRIGHTNESS": {
+  "tr": "Parlaklık",
+  "en": "Brightness",
+  "de": "Helligkeit"
+ },
+ "SET_MASTER": {
+  "tr": "Ana ses",
+  "en": "Master volume",
+  "de": "Gesamtlautstärke"
+ },
+ "SET_MUSIC": {
+  "tr": "Müzik",
+  "en": "Music",
+  "de": "Musik"
+ },
+ "SET_SFX": {
+  "tr": "Efektler",
+  "en": "Effects",
+  "de": "Effekte"
+ },
+ "SET_AMBIENCE": {
+  "tr": "Ortam sesleri",
+  "en": "Ambience",
+  "de": "Umgebung"
+ },
+ "SET_VOICE": {
+  "tr": "Diyaloglar",
+  "en": "Dialogue",
+  "de": "Dialoge"
+ },
+ "SET_SUBTITLES": {
+  "tr": "Altyazılar",
+  "en": "Subtitles",
+  "de": "Untertitel"
+ },
+ "SET_SENS": {
+  "tr": "Fare hassasiyeti",
+  "en": "Mouse sensitivity",
+  "de": "Mausempfindlichkeit"
+ },
+ "SET_INVERT": {
+  "tr": "Y eksenini ters çevir",
+  "en": "Invert Y axis",
+  "de": "Y-Achse invertieren"
+ },
+ "SET_FOV": {
+  "tr": "Görüş açısı (FOV)",
+  "en": "Field of view (FOV)",
+  "de": "Sichtfeld (FOV)"
+ },
+ "SET_HEADBOB": {
+  "tr": "Kamera sallanması",
+  "en": "Camera bob",
+  "de": "Kamerawippen"
+ },
+ "SET_CAMDEFAULT": {
+  "tr": "Başlangıç kamerası",
+  "en": "Starting camera",
+  "de": "Startkamera"
+ },
+ "CAM_TP": {
+  "tr": "Arkadan (3. şahıs)",
+  "en": "Third person",
+  "de": "Third Person"
+ },
+ "CAM_FP": {
+  "tr": "Birinci şahıs",
+  "en": "First person",
+  "de": "Ego-Perspektive"
+ },
+ "SET_LANGUAGE": {
+  "tr": "Oyun dili",
+  "en": "Game language",
+  "de": "Spielsprache"
+ },
+ "SET_LANG_NOTE": {
+  "tr": "Seslendirme Türkçedir; altyazılar seçilen dilde gösterilir.",
+  "en": "Voice-over is in Turkish; subtitles are shown in the selected language.",
+  "de": "Die Sprachausgabe ist auf Türkisch; Untertitel erscheinen in der gewählten Sprache."
+ },
+ "SET_CONTROLS_HELP": {
+  "tr": "W A S D: Yürü · Shift: Koş · Boşluk: Zıpla · Ctrl / C: Eğil · E: Etkileşim · V: Kamera değiştir · F: Telefon feneri · Q veya Sağ tık (basılı tut): Simbiyot · Esc: Menü · F3: FPS",
+  "en": "W A S D: Walk · Shift: Run · Space: Jump · Ctrl / C: Crouch · E: Interact · V: Switch camera · F: Phone light · Q or Right click (hold): Symbiote · Esc: Menu · F3: FPS",
+  "de": "W A S D: Gehen · Shift: Rennen · Leertaste: Springen · Strg / C: Ducken · E: Interagieren · V: Kamera wechseln · F: Handylicht · Q oder Rechtsklick (halten): Symbiont · Esc: Menü · F3: FPS"
+ },
+ "ON": {
+  "tr": "Açık",
+  "en": "On",
+  "de": "An"
+ },
+ "OFF": {
+  "tr": "Kapalı",
+  "en": "Off",
+  "de": "Aus"
+ },
+ "HUD_OBJECTIVE": {
+  "tr": "GÖREV",
+  "en": "OBJECTIVE",
+  "de": "ZIEL"
+ },
+ "HUD_TALK": {
+  "tr": "Konuş",
+  "en": "Talk",
+  "de": "Sprechen"
+ },
+ "HUD_INSPECT": {
+  "tr": "İncele",
+  "en": "Inspect",
+  "de": "Untersuchen"
+ },
+ "HUD_SYMBIOTE": {
+  "tr": "SİNİR YÜKÜ",
+  "en": "NERVE STRAIN",
+  "de": "NERVENLAST"
+ },
+ "HUD_HINT_START": {
+  "tr": "[V] Kamera  ·  [F] Telefon feneri  ·  [Q] / [Sağ tık] basılı tut: Simbiyot (deneme)  ·  [Shift] Koş  ·  [Ctrl] Eğil",
+  "en": "[V] Camera  ·  [F] Phone light  ·  Hold [Q] / [Right click]: Symbiote (test)  ·  [Shift] Run  ·  [Ctrl] Crouch",
+  "de": "[V] Kamera  ·  [F] Handylicht  ·  [Q] / [Rechtsklick] halten: Symbiont (Test)  ·  [Shift] Rennen  ·  [Strg] Ducken"
+ },
+ "HUD_SYMBIOTE_NOTE": {
+  "tr": "Deneme modu: Hikayede henüz Bertilda ile tanışmadın. Bu sadece simbiyot mekaniğini test etmek için.",
+  "en": "Test mode: you haven't met Bertilda in the story yet. This is only here to test the symbiote mechanic.",
+  "de": "Testmodus: In der Geschichte hast du Bertilda noch nicht getroffen. Das dient nur zum Testen der Symbiont-Mechanik."
+ },
+ "HUD_COLLAPSE": {
+  "tr": "Vücudun dayanamadı...",
+  "en": "Your body gave out...",
+  "de": "Dein Körper hat versagt..."
+ },
+ "HUD_SAVED": {
+  "tr": "Oyun kaydedildi",
+  "en": "Game saved",
+  "de": "Spiel gespeichert"
+ },
+ "HUD_METERS": {
+  "tr": "m",
+  "en": "m",
+  "de": "m"
+ },
+ "INTRO_PLACE": {
+  "tr": "OXWAG CITY  ·  QUMVIA LAND",
+  "en": "OXWAG CITY  ·  QUMVIA LAND",
+  "de": "OXWAG CITY  ·  QUMVIA LAND"
+ },
+ "INTRO_TIME": {
+  "tr": "Sabaha karşı 05:10",
+  "en": "5:10 AM",
+  "de": "5:10 Uhr morgens"
+ },
+ "OBJ_TEA": {
+  "tr": "Çin Mahallesi'ndeki Ay Işığı Çay Evi'ne git",
+  "en": "Go to the Moonlight Tea House in Chinatown",
+  "de": "Geh zum Mondlicht-Teehaus in Chinatown"
+ },
+ "OBJ_END": {
+  "tr": "Oxwag City'yi özgürce keşfet",
+  "en": "Explore Oxwag City freely",
+  "de": "Erkunde Oxwag City frei"
+ },
+ "END_TOAST": {
+  "tr": "Hikâyenin devamı yakında",
+  "en": "The story continues soon",
+  "de": "Die Geschichte geht bald weiter"
+ },
+ "NAME_VAYNARA": {
+  "tr": "Vaynara",
+  "en": "Vaynara",
+  "de": "Vaynara"
+ },
+ "NAME_VAYNARA_THOUGHT": {
+  "tr": "Vaynara (iç ses)",
+  "en": "Vaynara (thinking)",
+  "de": "Vaynara (Gedanken)"
+ },
+ "NAME_GUS": {
+  "tr": "Yaşlı Gus",
+  "en": "Old Gus",
+  "de": "Der alte Gus"
+ },
+ "NAME_LIN": {
+  "tr": "Lin Teyze",
+  "en": "Auntie Lin",
+  "de": "Tante Lin"
+ },
+ "INT_POSTER": {
+  "tr": "Kayıp afişi",
+  "en": "Missing poster",
+  "de": "Vermisstenplakat"
+ },
+ "INT_VTECH": {
+  "tr": "V-Tech ekranı",
+  "en": "V-Tech screen",
+  "de": "V-Tech-Bildschirm"
+ },
+ "INT_PROTEST": {
+  "tr": "El ilanı",
+  "en": "Flyer",
+  "de": "Flugblatt"
+ },
+ "DLG_CONTINUE": {
+  "tr": "[E] / [Boşluk] devam",
+  "en": "[E] / [Space] continue",
+  "de": "[E] / [Leertaste] weiter"
+ },
+ "D_INTRO_1": {
+  "tr": "Yine yağmur. Bu şehirde gökyüzü bile borçlu gibi ağlıyor.",
+  "en": "Rain again. In this city even the sky cries like it owes someone money.",
+  "de": "Schon wieder Regen. In dieser Stadt weint sogar der Himmel, als hätte er Schulden."
+ },
+ "D_INTRO_2": {
+  "tr": "Dün geceki hesabın parası yattı. Kira için yeter... belki.",
+  "en": "The money for last night's account came through. Enough for rent... maybe.",
+  "de": "Das Geld für den Account von gestern Nacht ist da. Reicht für die Miete... vielleicht."
+ },
+ "D_INTRO_3": {
+  "tr": "Lin Teyze yeni bir iş varmış dedi. Çin Mahallesi'ne, çay evine uğramalıyım.",
+  "en": "Auntie Lin said she has a new job for me. I should stop by the tea house in Chinatown.",
+  "de": "Tante Lin meinte, sie hat einen neuen Job für mich. Ich sollte im Teehaus in Chinatown vorbeischauen."
+ },
+ "D_POSTER_1": {
+  "tr": "Elizabeth Bravenwolf... Köprü kazasından beri kayıp olan çocuklardan biri.",
+  "en": "Elizabeth Bravenwolf... one of the kids missing since the bridge crash.",
+  "de": "Elizabeth Bravenwolf... eines der Kinder, die seit dem Brückenunfall vermisst werden."
+ },
+ "D_POSTER_2": {
+  "tr": "On iki çocuk. Bir gecede sırra kadem bastılar. Polis hâlâ \"soruşturuyoruz\" diyor.",
+  "en": "Twelve kids. Vanished in a single night. The police still say they're \"investigating\".",
+  "de": "Zwölf Kinder. In einer einzigen Nacht verschwunden. Die Polizei sagt immer noch, sie \"ermittelt\"."
+ },
+ "D_VTECH_1": {
+  "tr": "V-Tech. \"Yarın. Bugün.\" Robotlarıyla geleceği satıyorlar.",
+  "en": "V-Tech. \"Tomorrow. Today.\" Selling the future with their robots.",
+  "de": "V-Tech. \"Morgen. Heute.\" Sie verkaufen die Zukunft mit ihren Robotern."
+ },
+ "D_VTECH_2": {
+  "tr": "Ben bugünü zor çıkarıyorum, onlar yarını pazarlıyor.",
+  "en": "I can barely get through today, and they're marketing tomorrow.",
+  "de": "Ich komme kaum durch den heutigen Tag, und die vermarkten das Morgen."
+ },
+ "D_PROTEST_1": {
+  "tr": "\"Çocuklar nerede? Siyah kamyonlar. Plakasız.\" Biri V-Tech'e epey kızgın.",
+  "en": "\"Where are the kids? Black trucks. No plates.\" Someone's pretty angry at V-Tech.",
+  "de": "\"Wo sind die Kinder? Schwarze Lastwagen. Ohne Kennzeichen.\" Jemand ist ziemlich wütend auf V-Tech."
+ },
+ "D_PROTEST_2": {
+  "tr": "Komplo teorisi mi, yoksa herkesin görmezden geldiği gerçek mi... Bilmiyorum.",
+  "en": "A conspiracy theory, or the truth everyone ignores... I don't know.",
+  "de": "Eine Verschwörungstheorie oder die Wahrheit, die alle ignorieren... Ich weiß es nicht."
+ },
+ "D_GUS_1": {
+  "tr": "Vay, bizim kız! Bu saatte sokakta ne arıyorsun?",
+  "en": "Well, if it isn't our girl! What are you doing out on the street at this hour?",
+  "de": "Sieh an, unser Mädchen! Was machst du um diese Zeit auf der Straße?"
+ },
+ "D_GUS_2": {
+  "tr": "Lin Teyze'ye gidiyorum. Sen? Hâlâ ateşin başında mısın?",
+  "en": "Heading to Auntie Lin's. You? Still sitting by the fire?",
+  "de": "Ich geh zu Tante Lin. Und du? Sitzt du immer noch am Feuer?"
+ },
+ "D_GUS_3": {
+  "tr": "Başka nereye gideyim? Ama dinle... Geceleri o siyah kamyonlar yine geçiyor. Plakasız. Köprüdeki gibi.",
+  "en": "Where else would I go? But listen... those black trucks are rolling through again at night. No plates. Just like the one at the bridge.",
+  "de": "Wo soll ich sonst hin? Aber hör zu... nachts fahren wieder diese schwarzen Lastwagen vorbei. Ohne Kennzeichen. Genau wie der auf der Brücke."
+ },
+ "D_GUS_C1": {
+  "tr": "Ne kamyonu?",
+  "en": "What trucks?",
+  "de": "Welche Lastwagen?"
+ },
+ "D_GUS_C2": {
+  "tr": "Uyu biraz Gus, yine kafayı yemişsin.",
+  "en": "Get some sleep, Gus. You're losing it again.",
+  "de": "Schlaf ein bisschen, Gus. Du drehst wieder durch."
+ },
+ "D_GUS_A1": {
+  "tr": "V-Tech'in kamyonları. Kimse bir şey demiyor ama ben gördüm. Sokaktan insanlar kayboluyor kızım. Bizim gibilerden. Kimse aramıyor bizi.",
+  "en": "V-Tech's trucks. Nobody says a word, but I've seen them. People are vanishing from the streets, girl. People like us. Nobody comes looking for us.",
+  "de": "Die Lastwagen von V-Tech. Keiner sagt was, aber ich hab sie gesehen. Leute verschwinden von der Straße, Mädchen. Leute wie wir. Keiner sucht nach uns."
+ },
+ "D_GUS_A2": {
+  "tr": "Kendine dikkat et, Gus.",
+  "en": "Take care of yourself, Gus.",
+  "de": "Pass auf dich auf, Gus."
+ },
+ "D_GUS_B1": {
+  "tr": "Gülersin sen... Bir gün sen de görürsün.",
+  "en": "Laugh all you want... One day you'll see them too.",
+  "de": "Lach nur... Eines Tages wirst du sie auch sehen."
+ },
+ "D_GUS_R": {
+  "tr": "Ateş sönmesin yeter, gerisi boş.",
+  "en": "As long as the fire keeps burning, nothing else matters.",
+  "de": "Hauptsache, das Feuer geht nicht aus."
+ },
+ "D_LIN_1": {
+  "tr": "Vaynara! Yine sırılsıklam olmuşsun. Gel, gel, çay sıcak.",
+  "en": "Vaynara! You're soaked again. Come, come, the tea is hot.",
+  "de": "Vaynara! Du bist schon wieder klatschnass. Komm, komm, der Tee ist heiß."
+ },
+ "D_LIN_2": {
+  "tr": "Kısa tutalım teyze. İş neymiş?",
+  "en": "Let's keep it short, Auntie. What's the job?",
+  "de": "Machen wir's kurz, Tante. Was ist das für ein Job?"
+ },
+ "D_LIN_3": {
+  "tr": "Acelecisin. Hep aceleci.",
+  "en": "Always in a hurry. Always.",
+  "de": "Immer so eilig. Immer."
+ },
+ "D_LIN_4": {
+  "tr": "Bir müşteri sorup duruyor. \"Pringless\" denen hacker'ı arıyormuş. İyi para veriyor.",
+  "en": "A client keeps asking around. He's looking for a hacker called \"Pringless\". Pays well.",
+  "de": "Ein Kunde fragt ständig herum. Er sucht einen Hacker namens \"Pringless\". Zahlt gut."
+ },
+ "D_LIN_5": {
+  "tr": "Kimmiş bu müşteri?",
+  "en": "Who's the client?",
+  "de": "Wer ist der Kunde?"
+ },
+ "D_LIN_6": {
+  "tr": "Adını vermedi. Takım elbiseli, ayakkabıları tertemiz. Bu mahallede öyle ayakkabı görmeyiz.",
+  "en": "He didn't give a name. Suit, spotless shoes. We don't see shoes like that around here.",
+  "de": "Er hat keinen Namen genannt. Anzug, blitzsaubere Schuhe. Solche Schuhe sieht man hier nicht."
+ },
+ "D_LIN_C1": {
+  "tr": "İşi alıyorum. Para paradır.",
+  "en": "I'll take it. Money is money.",
+  "de": "Ich nehme den Job. Geld ist Geld."
+ },
+ "D_LIN_C2": {
+  "tr": "Bunun kokusu hoşuma gitmedi. Bir düşüneyim.",
+  "en": "I don't like the smell of this. Let me think about it.",
+  "de": "Das gefällt mir nicht. Ich denk drüber nach."
+ },
+ "D_LIN_A1": {
+  "tr": "Peki. Yarın gece tekrar gel, ayrıntıları veririm. Ve Vaynara... dikkatli ol.",
+  "en": "Fine. Come back tomorrow night and I'll give you the details. And Vaynara... be careful.",
+  "de": "Gut. Komm morgen Nacht wieder, dann bekommst du die Details. Und Vaynara... sei vorsichtig."
+ },
+ "D_LIN_B1": {
+  "tr": "Akıllı kız. Düşün. Ama çok bekleme, böyle adamlar beklemez.",
+  "en": "Smart girl. Think it over. But don't wait too long, men like that don't wait.",
+  "de": "Kluges Mädchen. Denk drüber nach. Aber warte nicht zu lange, solche Männer warten nicht."
+ },
+ "D_LIN_R": {
+  "tr": "Yarın gece, unutma.",
+  "en": "Tomorrow night, don't forget.",
+  "de": "Morgen Nacht, vergiss es nicht."
+ },
+ "D_COLLAPSE_1": {
+  "tr": "Elim... titriyor. Nefes al, Vaynara. Nefes al.",
+  "en": "My hand... it's shaking. Breathe, Vaynara. Breathe.",
+  "de": "Meine Hand... sie zittert. Atme, Vaynara. Atme."
+ },
+ "B_VTECH_1": {
+  "tr": "Yarını bugünden inşa ediyorlarmış. Kimin yarınını, onu yazmıyorlar.",
+  "en": "Building tomorrow, today. Whose tomorrow, they never say.",
+  "de": "Wir bauen das Morgen, heute. Wessen Morgen, sagen sie nie."
+ },
+ "B_VTECH_2": {
+  "tr": "Vox Voyager yine dev ekranda. Gülümsemesi bile sponsorlu.",
+  "en": "Vox Voyager on the big screen again. Even his smile is sponsored.",
+  "de": "Vox Voyager schon wieder auf dem Riesenbildschirm. Sogar sein Lächeln ist gesponsert."
+ },
+ "B_VTECH_3": {
+  "tr": "\"İnsanlığın son umudu.\" Umut bu kadar parlak olsaydı sokaklar bu kadar karanlık olmazdı.",
+  "en": "\"Humanity's last hope.\" If hope were this bright, the streets wouldn't be this dark.",
+  "de": "„Die letzte Hoffnung der Menschheit.“ Wäre Hoffnung so hell, wären die Straßen nicht so dunkel."
+ },
+ "B_VTECH_4": {
+  "tr": "Bu ekranın bir gecelik elektriği, bu mahallenin bir aylık faturası eder.",
+  "en": "One night of power for this screen costs more than this block's monthly bill.",
+  "de": "Eine Nacht Strom für diesen Bildschirm kostet mehr als die Monatsrechnung des ganzen Blocks."
+ },
+ "B_VTECH_5": {
+  "tr": "Bir gün o kulenin sunucularına gireceğim. Pringless'tan selamlar, Vox.",
+  "en": "One day I'm getting into that tower's servers. Greetings from Pringless, Vox.",
+  "de": "Eines Tages komme ich in die Server dieses Turms. Grüße von Pringless, Vox."
+ },
+ "B_VTECH_6": {
+  "tr": "Herkes ekrana bakıyor. Kimse ekranın arkasında ne olduğunu sormuyor.",
+  "en": "Everyone stares at the screen. Nobody asks what's behind it.",
+  "de": "Alle starren auf den Bildschirm. Niemand fragt, was dahinter steckt."
+ },
+ "B_VTECH_7": {
+  "tr": "V-Tech logosu her yerde. Şehrin kendisi bir reklam panosuna döndü.",
+  "en": "V-Tech's logo is everywhere. The city itself turned into a billboard.",
+  "de": "Das V-Tech-Logo ist überall. Die Stadt selbst ist zur Werbetafel geworden."
+ },
+ "B_VTECH_8": {
+  "tr": "Bir sonraki büyük buluş... Bir öncekinin bedelini kimin ödediğini anlatmıyorlar.",
+  "en": "The next big breakthrough... They never tell you who paid for the last one.",
+  "de": "Der nächste große Durchbruch... Wer für den letzten bezahlt hat, erzählen sie nie."
+ },
+ "B_PROTEST_1": {
+  "tr": "\"Ekmek pahalı, belediye sessiz.\" Bunu yazan haklı.",
+  "en": "\"Bread is pricey, City Hall is silent.\" Whoever wrote that is right.",
+  "de": "„Brot ist teuer, das Rathaus schweigt.“ Wer das geschrieben hat, hat recht."
+ },
+ "B_PROTEST_2": {
+  "tr": "Biri yine afiş asmış. Sabaha kadar söküp atarlar.",
+  "en": "Someone put up posters again. They'll be torn down by morning.",
+  "de": "Wieder hat jemand Plakate aufgehängt. Bis morgen früh sind sie weg."
+ },
+ "B_PROTEST_3": {
+  "tr": "Kiralar uçmuş, maaşlar yerinde sayıyor. Duvarlar bile bağırıyor artık.",
+  "en": "Rents are flying, wages are frozen. Even the walls are shouting now.",
+  "de": "Die Mieten explodieren, die Löhne stehen still. Sogar die Wände schreien jetzt."
+ },
+ "B_PROTEST_4": {
+  "tr": "Bu şehirde öfke bir afişle başlar. Nasıl biteceğini kimse bilmez.",
+  "en": "In this city anger starts with a poster. Nobody knows how it ends.",
+  "de": "In dieser Stadt beginnt Wut mit einem Plakat. Wie sie endet, weiß niemand."
+ },
+ "B_GATE_1": {
+  "tr": "Çin Mahallesi. Şehrin geri kalanı karardığında bile fenerler yanar.",
+  "en": "Chinatown. Even when the rest of the city goes dark, the lanterns stay lit.",
+  "de": "Chinatown. Selbst wenn der Rest der Stadt dunkel wird, brennen die Laternen."
+ },
+ "B_GATE_2": {
+  "tr": "Bu soğukta Lin Teyze'nin çayı iyi gider.",
+  "en": "Auntie Lin's tea would hit the spot in this cold.",
+  "de": "Bei der Kälte wäre Tante Lins Tee genau richtig."
+ },
+ "B_GATE_3": {
+  "tr": "Burada herkes her şeyi görür ama kimse bir şey söylemez. Tam bana göre.",
+  "en": "Here everyone sees everything and nobody says a word. My kind of place.",
+  "de": "Hier sieht jeder alles, und keiner sagt ein Wort. Ganz mein Ding."
+ },
+ "B_METRO_1": {
+  "tr": "Ashford istasyonu. Son tren çoktan gitti ama aşağıdan hâlâ bir uğultu geliyor.",
+  "en": "Ashford Station. The last train left ages ago, but something's still humming down there.",
+  "de": "Station Ashford. Der letzte Zug ist längst weg, aber da unten summt immer noch etwas."
+ },
+ "B_METRO_2": {
+  "tr": "Gece metroda kimse güvende değil. Ben hariç. Belki.",
+  "en": "Nobody's safe on the metro at night. Except me. Maybe.",
+  "de": "Nachts ist in der U-Bahn niemand sicher. Außer mir. Vielleicht."
+ },
+ "B_NOIR_1": {
+  "tr": "Hotel Noir. Odaları saatlik kiraladıkları söyleniyor. Neden hiç şaşırmadım?",
+  "en": "Hotel Noir. Rumour says they rent rooms by the hour. Why am I not surprised?",
+  "de": "Hotel Noir. Man sagt, die Zimmer werden stundenweise vermietet. Warum überrascht mich das nicht?"
+ },
+ "B_NOIR_2": {
+  "tr": "Neon tabelanın yarısı yanmıyor. Tıpkı otelin kendisi gibi.",
+  "en": "Half the neon sign is dead. Just like the hotel.",
+  "de": "Die Hälfte der Leuchtschrift ist tot. Genau wie das Hotel."
+ },
+ "MENU_TAGLINE": {
+  "tr": "OXWAG CITY · QUMVIA LAND",
+  "en": "OXWAG CITY · QUMVIA LAND",
+  "de": "OXWAG CITY · QUMVIA LAND"
+ },
+ "DESC_MENU_CONTINUE": {
+  "tr": "Son kayıttan, kaldığın yerden devam et.",
+  "en": "Pick up where you left off, from your last save.",
+  "de": "Mach dort weiter, wo du aufgehört hast."
+ },
+ "DESC_MENU_NEW": {
+  "tr": "Hikâyeye baştan başla. Mevcut kaydın üzerine yazılır.",
+  "en": "Start the story from the beginning. Overwrites your current save.",
+  "de": "Beginne die Geschichte von vorn. Überschreibt deinen Spielstand."
+ },
+ "DESC_MENU_SETTINGS": {
+  "tr": "Grafik, ekran, ses, kontroller ve dil.",
+  "en": "Graphics, display, audio, controls and language.",
+  "de": "Grafik, Anzeige, Audio, Steuerung und Sprache."
+ },
+ "DESC_MENU_QUIT": {
+  "tr": "Oyunu kaydet ve masaüstüne dön.",
+  "en": "Save and return to the desktop.",
+  "de": "Speichern und zum Desktop zurückkehren."
+ },
+ "UI_SELECT": {
+  "tr": "Seç",
+  "en": "Select",
+  "de": "Auswählen"
+ },
+ "UI_NAVIGATE": {
+  "tr": "Gezin",
+  "en": "Navigate",
+  "de": "Navigieren"
+ },
+ "UI_RESUME": {
+  "tr": "Oyuna dön",
+  "en": "Resume",
+  "de": "Fortsetzen"
+ },
+ "UI_CHANGE": {
+  "tr": "Değiştir",
+  "en": "Change",
+  "de": "Ändern"
+ },
+ "UI_CATEGORY": {
+  "tr": "Kategori",
+  "en": "Category",
+  "de": "Kategorie"
+ },
+ "UI_TIP": {
+  "tr": "İpucu",
+  "en": "Tip",
+  "de": "Tipp"
+ },
+ "UI_CONTROLS": {
+  "tr": "Kontroller",
+  "en": "Controls",
+  "de": "Steuerung"
+ },
+ "UI_IMPACT": {
+  "tr": "Performans etkisi",
+  "en": "Performance impact",
+  "de": "Leistungsbedarf"
+ },
+ "IMPACT_0": {
+  "tr": "Yok",
+  "en": "None",
+  "de": "Keiner"
+ },
+ "IMPACT_1": {
+  "tr": "Düşük",
+  "en": "Low",
+  "de": "Gering"
+ },
+ "IMPACT_2": {
+  "tr": "Yüksek",
+  "en": "High",
+  "de": "Hoch"
+ },
+ "UI_ON": {
+  "tr": "Açık",
+  "en": "On",
+  "de": "An"
+ },
+ "UI_OFF": {
+  "tr": "Kapalı",
+  "en": "Off",
+  "de": "Aus"
+ },
+ "SET_POST": {
+  "tr": "Görüntü işleme",
+  "en": "Post-processing",
+  "de": "Nachbearbeitung"
+ },
+ "LANG_TR": {
+  "tr": "Türkçe",
+  "en": "Türkçe",
+  "de": "Türkçe"
+ },
+ "LANG_EN": {
+  "tr": "English",
+  "en": "English",
+  "de": "English"
+ },
+ "LANG_DE": {
+  "tr": "Deutsch",
+  "en": "Deutsch",
+  "de": "Deutsch"
+ },
+ "CTL_MOVE": {
+  "tr": "Yürü",
+  "en": "Move",
+  "de": "Bewegen"
+ },
+ "CTL_RUN": {
+  "tr": "Koş",
+  "en": "Run",
+  "de": "Rennen"
+ },
+ "CTL_JUMP": {
+  "tr": "Zıpla",
+  "en": "Jump",
+  "de": "Springen"
+ },
+ "CTL_CROUCH": {
+  "tr": "Eğil",
+  "en": "Crouch",
+  "de": "Ducken"
+ },
+ "CTL_INTERACT": {
+  "tr": "Konuş / İncele",
+  "en": "Talk / Inspect",
+  "de": "Reden / Untersuchen"
+ },
+ "CTL_CAMERA": {
+  "tr": "Kamera: omuz üstü ↔ birinci şahıs",
+  "en": "Camera: over-shoulder ↔ first person",
+  "de": "Kamera: Schulter ↔ Ego"
+ },
+ "CTL_FLASHLIGHT": {
+  "tr": "Telefon feneri",
+  "en": "Phone flashlight",
+  "de": "Handy-Taschenlampe"
+ },
+ "CTL_POWER": {
+  "tr": "Simbiyot darbesi (basılı tut)",
+  "en": "Symbiote pulse (hold)",
+  "de": "Symbiont-Impuls (halten)"
+ },
+ "CTL_SAVE": {
+  "tr": "Hızlı kayıt",
+  "en": "Quick save",
+  "de": "Schnellspeichern"
+ },
+ "TIP_1": {
+  "tr": "Simbiyot darbesi etraftaki elektriği keser ama her kullanım sinirlerini zorlar. Sinir yükü dolarsa bayılırsın.",
+  "en": "The symbiote pulse kills nearby power, but every use strains your nerves. Max it out and you'll black out.",
+  "de": "Der Symbiont-Impuls legt den Strom in der Nähe lahm, belastet aber deine Nerven. Zu viel, und du wirst ohnmächtig."
+ },
+ "TIP_2": {
+  "tr": "Vaynara bazı yerlerden geçerken kendi kendine konuşur. Şehri dinle; her köşenin bir hikâyesi var.",
+  "en": "Vaynara sometimes talks to herself when passing places. Listen to the city; every corner has a story.",
+  "de": "Vaynara spricht manchmal mit sich selbst. Hör der Stadt zu; jede Ecke hat eine Geschichte."
+ },
+ "TIP_3": {
+  "tr": "V tuşu ile omuz üstü kamera ve birinci şahıs arasında geçiş yapabilirsin.",
+  "en": "Press V to switch between the over-the-shoulder and first-person camera.",
+  "de": "Mit V wechselst du zwischen Schulter- und Ego-Perspektive."
+ },
+ "TIP_4": {
+  "tr": "FPS düşükse Ayarlar > Grafik'ten 'Düşük' ön ayarını dene. Dinamik çözünürlük açık kalsın.",
+  "en": "Low FPS? Try the 'Low' preset in Settings > Graphics and keep dynamic resolution on.",
+  "de": "Niedrige FPS? Probiere die Voreinstellung 'Niedrig' und lass die dynamische Auflösung an."
+ },
+ "TIP_5": {
+  "tr": "Su birikintilerine basınca ayak seslerin değişir. Gizlice ilerlemek için Ctrl ile eğil.",
+  "en": "Puddles change your footsteps. Crouch with Ctrl to move quietly.",
+  "de": "Pfützen verändern deine Schritte. Mit Strg duckst du dich und bist leiser."
+ },
+ "TIP_6": {
+  "tr": "Oyun her dakika ve her konuşmadan sonra kendiliğinden kaydeder. F5 ile istediğin an kaydedebilirsin.",
+  "en": "The game saves every minute and after every conversation. Press F5 to save any time.",
+  "de": "Das Spiel speichert jede Minute und nach jedem Gespräch. Mit F5 jederzeit speichern."
+ },
+ "DESC_PRESET": {
+  "tr": "Bütün grafik ayarlarını tek seferde belirler. 'Orta', GT 740 gibi kartlarda 60 FPS hedefler.",
+  "en": "Sets every graphics option at once. 'Medium' targets 60 FPS on cards like the GT 740.",
+  "de": "Setzt alle Grafikoptionen auf einmal. 'Mittel' zielt auf 60 FPS bei Karten wie der GT 740."
+ },
+ "DESC_RENDERER": {
+  "tr": "Uyumluluk (OpenGL) eski kartlarda en hızlısıdır. Vulkan; hacimsel sis, yansımalar ve gölgeler açar. Oyunu yeniden başlatınca uygulanır.",
+  "en": "Compatibility (OpenGL) is fastest on older cards. Vulkan enables volumetric fog, reflections and shadows. Applies after a restart.",
+  "de": "Kompatibilität (OpenGL) ist auf älteren Karten am schnellsten. Vulkan aktiviert Volumennebel, Spiegelungen und Schatten. Gilt nach Neustart."
+ },
+ "DESC_RENDER_SCALE": {
+  "tr": "3D görüntünün iç çözünürlüğü. Düşürmek FPS'i en çok artıran ayardır; keskinleştirme bulanıklığı telafi eder.",
+  "en": "Internal resolution of the 3D view. Lowering it gives the biggest FPS boost; sharpening compensates for softness.",
+  "de": "Interne Auflösung der 3D-Ansicht. Senken bringt am meisten FPS; Schärfung gleicht Unschärfe aus."
+ },
+ "DESC_DYNAMIC_RES": {
+  "tr": "FPS düştüğünde çözünürlüğü kendiliğinden azaltır, toparlanınca geri yükseltir.",
+  "en": "Lowers resolution automatically when FPS drops and raises it again when it recovers.",
+  "de": "Senkt die Auflösung automatisch bei FPS-Einbrüchen und erhöht sie danach wieder."
+ },
+ "DESC_VIEW_DISTANCE": {
+  "tr": "Ne kadar uzağı görebileceğin. Uzak binalar sis içinde kaybolur.",
+  "en": "How far you can see. Distant buildings fade into the fog.",
+  "de": "Wie weit du sehen kannst. Entfernte Gebäude verschwinden im Nebel."
+ },
+ "DESC_SHADOWS": {
+  "tr": "Gerçek zamanlı gölgeler. Eski kartlarda pahalıdır; araç ve objelerin altındaki yumuşak gölgeler her zaman açıktır.",
+  "en": "Real-time shadows. Expensive on older cards; soft contact shadows under cars and props are always on.",
+  "de": "Echtzeitschatten. Teuer auf älteren Karten; weiche Kontaktschatten sind immer an."
+ },
+ "DESC_LIGHTS": {
+  "tr": "Aynı anda hesaplanan gerçek ışık sayısı. Geri kalan sokak ışıkları önceden hesaplanmış ışıkla gösterilir.",
+  "en": "Number of real lights computed at once. Other street lights use pre-computed lighting.",
+  "de": "Anzahl gleichzeitig berechneter echter Lichter. Andere nutzen vorberechnetes Licht."
+ },
+ "DESC_GLOW": {
+  "tr": "Neon tabelaların ve lambaların etrafındaki parlama.",
+  "en": "The glow around neon signs and lamps.",
+  "de": "Das Leuchten um Neonschilder und Lampen."
+ },
+ "DESC_POST": {
+  "tr": "Renk düzenlemesi, keskinleştirme, kenar karartma ve film greni. Sinematik görüntünün büyük kısmı buradan gelir.",
+  "en": "Colour grading, sharpening, vignette and film grain. Much of the cinematic look comes from here.",
+  "de": "Farbkorrektur, Schärfung, Vignette und Filmkorn. Ein Großteil des Kino-Looks."
+ },
+ "DESC_FOG": {
+  "tr": "Basit sis ya da (Vulkan'da) ışığı yakalayan hacimsel sis.",
+  "en": "Simple fog or (on Vulkan) volumetric fog that catches the light.",
+  "de": "Einfacher Nebel oder (mit Vulkan) Volumennebel, der das Licht einfängt."
+ },
+ "DESC_RAIN": {
+  "tr": "Yağmur damlası ve sıçrama yoğunluğu.",
+  "en": "Density of raindrops and splashes.",
+  "de": "Dichte von Regentropfen und Spritzern."
+ },
+ "DESC_AA": {
+  "tr": "Kenar tırtıklarını yumuşatır. Uyumluluk modunda MSAA kullanılır.",
+  "en": "Smooths jagged edges. Compatibility mode uses MSAA.",
+  "de": "Glättet Treppenkanten. Der Kompatibilitätsmodus nutzt MSAA."
+ },
+ "DESC_SSAO": {
+  "tr": "Köşelerde ve temas noktalarında gerçekçi gölgelenme (yalnızca Vulkan).",
+  "en": "Realistic shading in corners and contact points (Vulkan only).",
+  "de": "Realistische Verschattung in Ecken (nur Vulkan)."
+ },
+ "DESC_SSR": {
+  "tr": "Islak zeminlerde gerçek ekran-uzayı yansımaları (yalnızca Vulkan). Uyumluluk modunda sahte yansımalar kullanılır.",
+  "en": "True screen-space reflections on wet ground (Vulkan only). Compatibility mode uses faked reflections.",
+  "de": "Echte Bildschirm-Spiegelungen auf nassem Boden (nur Vulkan)."
+ },
+ "DESC_WINDOWS": {
+  "tr": "Pencerelerin arkasındaki odalar ve dükkân içleri.",
+  "en": "The rooms and shop interiors behind windows.",
+  "de": "Räume und Ladeninneres hinter den Fenstern."
+ },
+ "DESC_TEXQ": {
+  "tr": "Doku çözünürlüğü. Ekran kartı belleği azsa düşür.",
+  "en": "Texture resolution. Lower it if your graphics card has little memory.",
+  "de": "Texturauflösung. Senken bei wenig Grafikspeicher."
+ },
+ "DESC_PARTICLES": {
+  "tr": "Buhar, ateş ve kıvılcım efektlerinin yoğunluğu.",
+  "en": "Density of steam, fire and spark effects.",
+  "de": "Dichte von Dampf-, Feuer- und Funkeneffekten."
+ },
+ "DESC_WINDOW_MODE": {
+  "tr": "Pencere, tam ekran ya da özel tam ekran.",
+  "en": "Windowed, fullscreen or exclusive fullscreen.",
+  "de": "Fenster, Vollbild oder exklusives Vollbild."
+ },
+ "DESC_VSYNC": {
+  "tr": "Ekran yırtılmasını önler. Kapatmak gecikmeyi biraz azaltır.",
+  "en": "Prevents screen tearing. Turning it off slightly reduces latency.",
+  "de": "Verhindert Bildreißen. Aus = etwas weniger Verzögerung."
+ },
+ "DESC_FPS_LIMIT": {
+  "tr": "Kare hızına üst sınır koyar. Fanlar sessiz kalsın istiyorsan 60 seç.",
+  "en": "Caps the frame rate. Pick 60 to keep your fans quiet.",
+  "de": "Begrenzt die Bildrate. 60 hält die Lüfter leise."
+ },
+ "DESC_SHOW_FPS": {
+  "tr": "Sağ üst köşede FPS göstergesi (F3).",
+  "en": "FPS counter in the top-right corner (F3).",
+  "de": "FPS-Anzeige oben rechts (F3)."
+ },
+ "DESC_BRIGHTNESS": {
+  "tr": "Oyun çok karanlık geliyorsa artır. Oxwag karanlık bir şehirdir ama gözün yorulmasın.",
+  "en": "Raise it if the game looks too dark. Oxwag is a dark city, but don't strain your eyes.",
+  "de": "Erhöhen, wenn es zu dunkel ist. Oxwag ist dunkel, aber schone deine Augen."
+ },
+ "DESC_MASTER": {
+  "tr": "Tüm seslerin genel seviyesi.",
+  "en": "Overall volume of everything.",
+  "de": "Gesamtlautstärke."
+ },
+ "DESC_MUSIC": {
+  "tr": "Müzik seviyesi.",
+  "en": "Music volume.",
+  "de": "Musiklautstärke."
+ },
+ "DESC_SFX": {
+  "tr": "Adımlar, darbeler ve efektler.",
+  "en": "Footsteps, impacts and effects.",
+  "de": "Schritte, Treffer und Effekte."
+ },
+ "DESC_AMBIENCE": {
+  "tr": "Yağmur, şehir uğultusu, neon vızıltısı.",
+  "en": "Rain, city hum, neon buzz.",
+  "de": "Regen, Stadtrauschen, Neonsummen."
+ },
+ "DESC_VOICE": {
+  "tr": "Diyaloglar ve iç ses.",
+  "en": "Dialogue and inner voice.",
+  "de": "Dialoge und innere Stimme."
+ },
+ "DESC_SUBTITLES": {
+  "tr": "Konuşmaları ve iç sesi yazı olarak gösterir.",
+  "en": "Shows dialogue and inner voice as text.",
+  "de": "Zeigt Dialoge und innere Stimme als Text."
+ },
+ "DESC_MOUSE_SENS": {
+  "tr": "Fareyle etrafa bakma hızı.",
+  "en": "How fast the mouse turns the camera.",
+  "de": "Wie schnell die Maus die Kamera dreht."
+ },
+ "DESC_INVERT_Y": {
+  "tr": "Yukarı-aşağı bakışı tersine çevirir.",
+  "en": "Inverts looking up and down.",
+  "de": "Kehrt den Blick nach oben/unten um."
+ },
+ "DESC_FOV": {
+  "tr": "Görüş alanı. Geniş açı daha fazlasını gösterir, bazı kişilerde baş dönmesini azaltır.",
+  "en": "Field of view. Wider shows more and reduces motion sickness for some players.",
+  "de": "Sichtfeld. Weiter zeigt mehr und mindert bei manchen Übelkeit."
+ },
+ "DESC_HEAD_BOB": {
+  "tr": "Birinci şahısta yürürken kameranın hafifçe sallanması.",
+  "en": "Gentle camera sway while walking in first person.",
+  "de": "Leichtes Kamerawippen beim Gehen in der Ego-Ansicht."
+ },
+ "DESC_CAMERA": {
+  "tr": "Oyunun hangi kamerayla başlayacağı. Oyun içinde V ile değiştirebilirsin.",
+  "en": "Which camera the game starts with. Switch any time with V.",
+  "de": "Mit welcher Kamera das Spiel startet. Wechsel jederzeit mit V."
+ },
+ "DESC_LANGUAGE": {
+  "tr": "Arayüz ve altyazı dili. Seslendirme Türkçedir.",
+  "en": "Interface and subtitle language. Voice-over is in Turkish.",
+  "de": "Sprache von Oberfläche und Untertiteln. Die Sprachausgabe ist Türkisch."
+ },
+ "HINT_CAMERA": {
+  "tr": "Kamera",
+  "en": "Camera",
+  "de": "Kamera"
+ },
+ "HINT_LIGHT": {
+  "tr": "Fener",
+  "en": "Light",
+  "de": "Licht"
+ },
+ "HINT_POWER": {
+  "tr": "Simbiyot",
+  "en": "Symbiote",
+  "de": "Symbiont"
+ },
+ "HINT_RUN": {
+  "tr": "Koş",
+  "en": "Run",
+  "de": "Rennen"
+ },
+ "HINT_CROUCH": {
+  "tr": "Eğil",
+  "en": "Crouch",
+  "de": "Ducken"
+ },
+ "HINT_MENU": {
+  "tr": "Menü",
+  "en": "Menu",
+  "de": "Menü"
+ },
+ "SET_MOUSE_RAW": {
+  "tr": "Ham fare girişi (raw)",
+  "en": "Raw mouse input",
+  "de": "Rohe Mauseingabe (raw)"
+ },
+ "DESC_MOUSE_RAW": {
+  "tr": "Kapalı (önerilen): her farede çalışan uyumlu mod. Açık: Windows ham fare verisini kullanır; bazı farelerde ve sürücülerde kamera dönmeyebilir.",
+  "en": "Off (recommended): compatible mode that works with every mouse. On: uses raw Windows mouse data; with some mice/drivers the camera may not turn.",
+  "de": "Aus (empfohlen): kompatibler Modus, funktioniert mit jeder Maus. An: nutzt rohe Windows-Mausdaten; bei manchen Mäusen/Treibern dreht sich die Kamera nicht."
+ },
+ "SET_AUTOCAM": {
+  "tr": "Otomatik kamera takibi",
+  "en": "Auto camera follow",
+  "de": "Automatische Kameraführung"
+ },
+ "DESC_AUTO_CAMERA": {
+  "tr": "Yürürken fareyi bir süre bırakırsan kamera yumuşakça karakterin arkasına geçer ve onu ortalar. Fareyi oynattığın an bırakır.",
+  "en": "When you leave the mouse alone while walking, the camera eases in behind the character. It lets go the moment you move the mouse.",
+  "de": "Lässt du die Maus beim Gehen ruhen, gleitet die Kamera sanft hinter die Figur. Sobald du die Maus bewegst, gibt sie nach."
+ },
+ "SET_MOUSE_SMOOTH": {
+  "tr": "Fare yumuşatma",
+  "en": "Mouse smoothing",
+  "de": "Mausglättung"
+ },
+ "DESC_MOUSE_SMOOTH": {
+  "tr": "Kamera dönüşünü çok kısa bir süre yumuşatır; titremeyi ve takılmayı alır. 0 = tamamen ham.",
+  "en": "Smooths camera turning over a few milliseconds to remove judder. 0 = fully raw.",
+  "de": "Glättet die Kameradrehung für wenige Millisekunden und entfernt Ruckeln. 0 = völlig roh."
+ },
+ "SET_SPRINT_TOGGLE": {
+  "tr": "Koşma: bir kez bas (aç/kapa)",
+  "en": "Sprint: tap once (toggle)",
+  "de": "Sprinten: einmal tippen (umschalten)"
+ },
+ "DESC_SPRINT_TOGGLE": {
+  "tr": "Kapalı: Shift basılıyken koşarsın. Açık: Shift'e bir kez bas, durana kadar koşarsın; böylece Shift'i basılı tutmadan W+A / W+D ile koşabilirsin. Bazı klavyeler aynı anda 3 tuşu (örneğin W+Shift+A) algılayamaz; aşağıdaki satır oyunun şu an hangi tuşları gördüğünü gösterir.",
+  "en": "Off: run while Shift is held. On: tap Shift once and keep running until you stop, so you can run with W+A / W+D without holding Shift. Some keyboards cannot register three keys at once (e.g. W+Shift+A); the line below shows which keys the game sees right now.",
+  "de": "Aus: Laufen solange Shift gedrückt ist. An: Shift einmal tippen, du rennst bis du anhältst – so geht W+A / W+D ohne Shift zu halten. Manche Tastaturen erkennen keine drei Tasten gleichzeitig (z. B. W+Shift+A); die Zeile unten zeigt, welche Tasten das Spiel gerade sieht."
+ },
+ "UI_KEYTEST": {
+  "tr": "Basılı tuşlar",
+  "en": "Keys held",
+  "de": "Gedrückte Tasten"
+ }
+}

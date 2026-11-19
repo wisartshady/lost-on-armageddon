@@ -1,0 +1,868 @@
+{
+ "umbrella": {
+  "tris": 1980,
+  "materials": [
+   "canopy",
+   "metal",
+   "wood"
+  ]
+ },
+ "manhole": {
+  "tris": 2,
+  "materials": [
+   "manhole"
+  ]
+ },
+ "lamp_classic": {
+  "light": [
+   1.45,
+   5.8,
+   0
+  ],
+  "collider": {
+   "type": "cyl",
+   "r": 0.2,
+   "h": 6.0
+  },
+  "tris": 346,
+  "materials": [
+   "lamp_glass",
+   "metal"
+  ]
+ },
+ "lamp_cobra": {
+  "light": [
+   2.38,
+   8.1,
+   0
+  ],
+  "collider": {
+   "type": "cyl",
+   "r": 0.25,
+   "h": 7.5
+  },
+  "tris": 384,
+  "materials": [
+   "concrete",
+   "lamp_glass",
+   "metal_clean"
+  ]
+ },
+ "traffic_light": {
+  "collider": {
+   "type": "cyl",
+   "r": 0.15,
+   "h": 3.6
+  },
+  "tris": 1096,
+  "materials": [
+   "metal",
+   "metal_clean",
+   "traffic"
+  ]
+ },
+ "hydrant": {
+  "collider": {
+   "type": "cyl",
+   "r": 0.18,
+   "h": 0.8
+  },
+  "tris": 340,
+  "materials": [
+   "metal"
+  ]
+ },
+ "trash_bin": {
+  "collider": {
+   "type": "cyl",
+   "r": 0.32,
+   "h": 0.95
+  },
+  "tris": 160,
+  "materials": [
+   "metal",
+   "plastic"
+  ]
+ },
+ "dumpster": {
+  "collider": {
+   "type": "box",
+   "size": [
+    1.95,
+    1.3,
+    1.25
+   ],
+   "center": [
+    0,
+    0.65,
+    0
+   ]
+  },
+  "tris": 176,
+  "materials": [
+   "metal"
+  ]
+ },
+ "trash_bags": {
+  "collider": {
+   "type": "box",
+   "size": [
+    1.3,
+    0.6,
+    1.0
+   ],
+   "center": [
+    0,
+    0.3,
+    0
+   ]
+  },
+  "tris": 2360,
+  "materials": [
+   "plastic"
+  ]
+ },
+ "boxes": {
+  "collider": {
+   "type": "box",
+   "size": [
+    0.8,
+    0.9,
+    0.7
+   ],
+   "center": [
+    0,
+    0.45,
+    0
+   ]
+  },
+  "tris": 48,
+  "materials": [
+   "cardboard"
+  ]
+ },
+ "pallet": {
+  "collider": {
+   "type": "box",
+   "size": [
+    1.2,
+    0.15,
+    1.2
+   ],
+   "center": [
+    0,
+    0.07,
+    0
+   ]
+  },
+  "tris": 120,
+  "materials": [
+   "wood"
+  ]
+ },
+ "barrel": {
+  "collider": {
+   "type": "cyl",
+   "r": 0.3,
+   "h": 0.9
+  },
+  "tris": 216,
+  "materials": [
+   "metal"
+  ]
+ },
+ "bench": {
+  "collider": {
+   "type": "box",
+   "size": [
+    1.9,
+    0.5,
+    0.5
+   ],
+   "center": [
+    0,
+    0.25,
+    0
+   ]
+  },
+  "tris": 120,
+  "materials": [
+   "metal",
+   "wood"
+  ]
+ },
+ "bus_shelter": {
+  "collider": {
+   "type": "box",
+   "size": [
+    4.0,
+    2.6,
+    0.12
+   ],
+   "center": [
+    0,
+    1.3,
+    -0.66
+   ]
+  },
+  "light": [
+   0,
+   2.3,
+   0
+  ],
+  "tris": 164,
+  "materials": [
+   "glass_dark",
+   "metal_clean",
+   "posters_lit",
+   "signs"
+  ]
+ },
+ "newspaper_box": {
+  "collider": {
+   "type": "box",
+   "size": [
+    0.5,
+    1.15,
+    0.45
+   ],
+   "center": [
+    0,
+    0.57,
+    0
+   ]
+  },
+  "tris": 60,
+  "materials": [
+   "glass_dark",
+   "metal"
+  ]
+ },
+ "mailbox": {
+  "collider": {
+   "type": "box",
+   "size": [
+    0.6,
+    1.3,
+    0.55
+   ],
+   "center": [
+    0,
+    0.65,
+    0
+   ]
+  },
+  "tris": 100,
+  "materials": [
+   "metal"
+  ]
+ },
+ "parking_meter": {
+  "collider": {
+   "type": "cyl",
+   "r": 0.08,
+   "h": 1.4
+  },
+  "tris": 100,
+  "materials": [
+   "glass_dark",
+   "metal"
+  ]
+ },
+ "bollard": {
+  "collider": {
+   "type": "cyl",
+   "r": 0.12,
+   "h": 1.0
+  },
+  "tris": 160,
+  "materials": [
+   "metal",
+   "metal_clean"
+  ]
+ },
+ "tree_bare": {
+  "collider": {
+   "type": "cyl",
+   "r": 0.2,
+   "h": 3.0
+  },
+  "tris": 946,
+  "materials": [
+   "bark"
+  ]
+ },
+ "tree_pit": {
+  "collider": {
+   "type": "box",
+   "size": [
+    1.56,
+    0.075,
+    1.56
+   ],
+   "center": [
+    0,
+    0.0375,
+    0
+   ]
+  },
+  "tris": 476,
+  "materials": [
+   "dirt",
+   "granite"
+  ]
+ },
+ "tree_pit_guard": {
+  "collider": {
+   "type": "box",
+   "size": [
+    1.56,
+    0.545,
+    1.56
+   ],
+   "center": [
+    0,
+    0.2725,
+    0
+   ]
+  },
+  "tris": 2316,
+  "materials": [
+   "dirt",
+   "granite",
+   "metal"
+  ]
+ },
+ "barricade": {
+  "collider": {
+   "type": "box",
+   "size": [
+    2.5,
+    1.1,
+    0.4
+   ],
+   "center": [
+    0,
+    0.55,
+    0
+   ]
+  },
+  "tris": 64,
+  "materials": [
+   "lamp_glass",
+   "metal",
+   "signs"
+  ]
+ },
+ "cone": {
+  "collider": {
+   "type": "cyl",
+   "r": 0.18,
+   "h": 0.7
+  },
+  "tris": 132,
+  "materials": [
+   "plastic"
+  ]
+ },
+ "fence": {
+  "collider": {
+   "type": "box",
+   "size": [
+    3.0,
+    2.4,
+    0.1
+   ],
+   "center": [
+    0,
+    1.2,
+    0
+   ]
+  },
+  "tris": 62,
+  "materials": [
+   "chainlink",
+   "metal_clean"
+  ]
+ },
+ "ac_unit": {
+  "tris": 38,
+  "materials": [
+   "grating",
+   "metal",
+   "metal_clean"
+  ]
+ },
+ "water_tower": {
+  "collider": {
+   "type": "box",
+   "size": [
+    3.4,
+    8.2,
+    3.4
+   ],
+   "center": [
+    0,
+    4.1,
+    0
+   ]
+  },
+  "tris": 332,
+  "materials": [
+   "metal",
+   "roof_cone",
+   "wood",
+   "wood_tank"
+  ]
+ },
+ "roof_vent": {
+  "tris": 140,
+  "materials": [
+   "metal",
+   "metal_clean"
+  ]
+ },
+ "chimney": {
+  "tris": 88,
+  "materials": [
+   "brick_dark",
+   "concrete",
+   "metal"
+  ]
+ },
+ "antenna": {
+  "tris": 196,
+  "materials": [
+   "metal",
+   "metal_clean"
+  ]
+ },
+ "steam_stack": {
+  "collider": {
+   "type": "cyl",
+   "r": 0.33,
+   "h": 2.0
+  },
+  "steam": [
+   0,
+   2.0,
+   0
+  ],
+  "tris": 144,
+  "materials": [
+   "plastic"
+  ]
+ },
+ "lantern": {
+  "tris": 276,
+  "materials": [
+   "fabric_red",
+   "lantern",
+   "metal"
+  ]
+ },
+ "market_crates": {
+  "collider": {
+   "type": "box",
+   "size": [
+    1.7,
+    0.7,
+    0.6
+   ],
+   "center": [
+    0,
+    0.35,
+    0
+   ]
+  },
+  "tris": 1640,
+  "materials": [
+   "plastic",
+   "wood"
+  ]
+ },
+ "swing_set": {
+  "collider": {
+   "type": "box",
+   "size": [
+    3.5,
+    2.5,
+    1.8
+   ],
+   "center": [
+    0,
+    1.25,
+    0
+   ]
+  },
+  "tris": 160,
+  "materials": [
+   "metal_clean",
+   "rubber"
+  ]
+ },
+ "slide": {
+  "collider": {
+   "type": "box",
+   "size": [
+    1.3,
+    2.6,
+    4.2
+   ],
+   "center": [
+    0,
+    1.3,
+    0.6
+   ]
+  },
+  "tris": 368,
+  "materials": [
+   "metal_clean",
+   "plastic",
+   "wood"
+  ]
+ },
+ "climber": {
+  "collider": {
+   "type": "box",
+   "size": [
+    2.25,
+    2.25,
+    2.25
+   ],
+   "center": [
+    0,
+    1.125,
+    0
+   ]
+  },
+  "tris": 2112,
+  "materials": [
+   "metal_clean"
+  ]
+ },
+ "seesaw": {
+  "collider": {
+   "type": "box",
+   "size": [
+    3.3,
+    0.9,
+    0.45
+   ],
+   "center": [
+    0,
+    0.45,
+    0
+   ]
+  },
+  "tris": 264,
+  "materials": [
+   "metal_clean",
+   "plastic",
+   "rubber",
+   "wood"
+  ]
+ },
+ "spring_rider": {
+  "collider": {
+   "type": "box",
+   "size": [
+    0.4,
+    1.05,
+    0.9
+   ],
+   "center": [
+    0,
+    0.52,
+    -0.05
+   ]
+  },
+  "tris": 2432,
+  "materials": [
+   "metal_clean",
+   "plastic"
+  ]
+ },
+ "sandbox": {
+  "collider": {
+   "type": "box",
+   "size": [
+    3.2,
+    0.3,
+    3.2
+   ],
+   "center": [
+    0,
+    0.15,
+    0
+   ]
+  },
+  "tris": 50,
+  "materials": [
+   "dirt",
+   "wood"
+  ]
+ },
+ "picnic_table": {
+  "collider": {
+   "type": "box",
+   "size": [
+    1.9,
+    0.76,
+    1.6
+   ],
+   "center": [
+    0,
+    0.38,
+    0
+   ]
+  },
+  "tris": 192,
+  "materials": [
+   "wood"
+  ]
+ },
+ "tree_leafy": {
+  "collider": {
+   "type": "cyl",
+   "r": 0.26,
+   "h": 3.0
+  },
+  "tris": 436,
+  "materials": [
+   "bark",
+   "foliage"
+  ]
+ },
+ "tree_leafy_b": {
+  "collider": {
+   "type": "cyl",
+   "r": 0.28,
+   "h": 3.4
+  },
+  "tris": 504,
+  "materials": [
+   "bark",
+   "foliage"
+  ]
+ },
+ "tree_young": {
+  "collider": {
+   "type": "cyl",
+   "r": 0.14,
+   "h": 2.6
+  },
+  "tris": 368,
+  "materials": [
+   "bark",
+   "foliage"
+  ]
+ },
+ "scaffold_bay": {
+  "tris": 156,
+  "materials": [
+   "metal_clean",
+   "wood"
+  ]
+ },
+ "tower_crane": {
+  "collider": {
+   "type": "box",
+   "size": [
+    1.6,
+    48.0,
+    1.6
+   ],
+   "center": [
+    0,
+    24.0,
+    0
+   ]
+  },
+  "beacon": [
+   0,
+   56.2,
+   0
+  ],
+  "tris": 1816,
+  "materials": [
+   "concrete",
+   "lamp_glass",
+   "metal",
+   "metal_clean"
+  ]
+ },
+ "site_toilet": {
+  "collider": {
+   "type": "box",
+   "size": [
+    1.2,
+    2.35,
+    1.2
+   ],
+   "center": [
+    0,
+    1.17,
+    0
+   ]
+  },
+  "tris": 36,
+  "materials": [
+   "plastic"
+  ]
+ },
+ "cement_mixer": {
+  "collider": {
+   "type": "box",
+   "size": [
+    1.0,
+    1.45,
+    1.6
+   ],
+   "center": [
+    0,
+    0.72,
+    -0.25
+   ]
+  },
+  "tris": 648,
+  "materials": [
+   "metal",
+   "metal_clean",
+   "rubber"
+  ]
+ },
+ "rebar_stack": {
+  "collider": {
+   "type": "box",
+   "size": [
+    6.0,
+    0.25,
+    1.3
+   ],
+   "center": [
+    0,
+    0.12,
+    0
+   ]
+  },
+  "tris": 396,
+  "materials": [
+   "metal",
+   "wood"
+  ]
+ },
+ "hoarding": {
+  "collider": {
+   "type": "box",
+   "size": [
+    2.4,
+    2.4,
+    0.2
+   ],
+   "center": [
+    0,
+    1.2,
+    0
+   ]
+  },
+  "tris": 38,
+  "materials": [
+   "posters",
+   "wood"
+  ]
+ },
+ "car_sedan": {
+  "collider": {
+   "type": "box",
+   "size": [
+    4.8,
+    1.5,
+    1.84
+   ],
+   "center": [
+    0,
+    0.75,
+    0
+   ]
+  },
+  "tris": 468,
+  "materials": [
+   "car_light",
+   "carpaint",
+   "glass_dark",
+   "metal_clean",
+   "rubber"
+  ]
+ },
+ "car_hatch": {
+  "collider": {
+   "type": "box",
+   "size": [
+    4.0,
+    1.5,
+    1.84
+   ],
+   "center": [
+    0,
+    0.75,
+    0
+   ]
+  },
+  "tris": 464,
+  "materials": [
+   "car_light",
+   "carpaint",
+   "glass_dark",
+   "metal_clean",
+   "rubber"
+  ]
+ },
+ "car_van": {
+  "collider": {
+   "type": "box",
+   "size": [
+    5.1,
+    2.1,
+    2.0
+   ],
+   "center": [
+    0,
+    1.05,
+    0
+   ]
+  },
+  "tris": 462,
+  "materials": [
+   "car_light",
+   "carpaint",
+   "glass_dark",
+   "metal_clean",
+   "rubber"
+  ]
+ },
+ "car_taxi": {
+  "collider": {
+   "type": "box",
+   "size": [
+    4.8,
+    1.5,
+    1.84
+   ],
+   "center": [
+    0,
+    0.75,
+    0
+   ]
+  },
+  "tris": 480,
+  "materials": [
+   "car_light",
+   "carpaint",
+   "glass_dark",
+   "metal_clean",
+   "rubber",
+   "signs_plain"
+  ]
+ }
+}
