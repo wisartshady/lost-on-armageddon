@@ -7,6 +7,8 @@ instance uniform float lights_on = 0.0;     // head/tail lights
 instance uniform float braking = 0.0;
 instance uniform float siren = 0.0;         // police / ambulance light bar
 instance uniform float dirt = 0.25;
+// paint under the door lettering (police: the white doors; ambulance: its body paint), set by VehicleLib
+instance uniform vec4 decal_base : source_color = vec4(0.92, 0.92, 0.92, 1.0);
 uniform sampler2D atlas : source_color, filter_linear_mipmap_anisotropic;
 
 varying flat int v_part;
@@ -96,11 +98,21 @@ void fragment() {
 		rough = 0.1;
 		refl = 0.3;
 	} else if (part == 10 || part == 14) {         // textured decals (plates, lettering, taxi sign)
-		alb = texture(atlas, UV).rgb;
+		vec4 dt = texture(atlas, UV);
+		alb = dt.rgb;
 		rough = 0.45;
 		refl = fresnel(0.04, ndv) * 0.6;
 		if (part == 14) {
 			emis = alb * (0.4 + lights_on * 1.6);
+		} else if (dt.a < 0.999) {
+			// door lettering is printed on the paint: where the artwork is clear, shade it exactly like the door
+			vec3 door = decal_base.rgb;
+			float pr = mix(0.28, 0.12, w) + grime * 0.4;
+			float prefl = fresnel(0.05, ndv) * (1.0 - grime * 0.7) * 1.4;
+			alb = mix(mix(door, vec3(0.16, 0.14, 0.12), grime * 0.7), alb, dt.a);
+			rough = mix(pr, 0.32, dt.a);
+			spec = 0.6;
+			refl = mix(prefl, prefl * 0.8, dt.a);
 		}
 	} else if (part == 12 || part == 13) {         // light bar
 		vec3 c = part == 12 ? vec3(1.0, 0.05, 0.04) : vec3(0.08, 0.2, 1.0);

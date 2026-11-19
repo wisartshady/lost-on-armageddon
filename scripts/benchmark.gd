@@ -122,6 +122,7 @@ func _build_groups() -> void:
 		["son efekt/post", [main.post], "vis"],
 		["parlama/glow", [], "glow"],
 		["pencere ici/windows", [], "windows"],
+		["derinlik on-gecisi/depth prepass", city.prepass_nodes.duplicate(), "vis"],
 	]
 
 func _hide_group(g: Array) -> void:

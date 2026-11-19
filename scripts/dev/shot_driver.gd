@@ -54,6 +54,7 @@ func _sample(delta: float) -> void:
 
 
 var _follow: Array = []
+var _show_car: MeshInstance3D
 var _game_time:= true
 
 
@@ -164,6 +165,25 @@ func _process(delta: float) -> void:
 			ev.keycode = ev.physical_keycode
 			ev.pressed = bool(c.get("down", true))
 			Input.parse_input_event(ev)
+		if c.has("showroom"):
+			# a single vehicle at a free spot, front towards -z
+			if _show_car:
+				_show_car.queue_free()
+			for pm in main.city.parked:
+				pm.visible = false
+			var pos: Vector3 = _v(c.get("at", [-70.0, 0.0, 5.5]))
+			_show_car = VehicleLib.spawn(main.world, str(c["showroom"]), Transform3D(Basis(Vector3.UP, float(c.get("yaw", 0.0))), pos),
+				Color(c.get("paint", [0.2, 0.22, 0.25, 0.4])[0], c.get("paint", [0.2, 0.22, 0.25, 0.4])[1], c.get("paint", [0.2, 0.22, 0.25, 0.4])[2], c.get("paint", [0.2, 0.22, 0.25, 0.4])[3]), 0.15)
+		if c.has("glass_tint"):
+			VehicleLib.near_materials()[1].set_shader_parameter("tint", float(c["glass_tint"]))
+		if c.has("xray_cars"):
+			var xm:= (VehicleLib.material().duplicate() as ShaderMaterial)
+			xm.shader = load("res://shaders/dev_vehicle_xray.gdshader")
+			for mi in main.city.parked:
+				mi.material_override = xm
+		if c.has("print_cars"):
+			for mi in main.city.parked:
+				print("CAR ", mi.mesh.resource_path, " ", mi.global_position)
 		if c.has("anims"):
 			print("ANIMS ", ", ".join(AnimLib.get_library().get_animation_list()))
 		if c.has("pose_clip"):

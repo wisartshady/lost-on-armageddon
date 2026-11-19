@@ -48,6 +48,9 @@ func build() -> void:
 				chunk_radius.append(float(c.get("radius", 60.0)))
 			else:
 				mi.extra_cull_margin = 0.0
+		var chunk_meshes:= _meshes(inst)
+		if not c["far"] and not chunk_meshes.is_empty():
+			_add_prepass(chunk_meshes[0], c["file"])
 		if i % 6 == 0:
 			progress.emit(0.1 + 0.6 * float(i) / n, "LOADING_CITY")
 			await get_tree().process_frame
@@ -69,6 +72,28 @@ func build() -> void:
 	apply_settings()
 	Settings.changed.connect(func (_s): apply_settings())
 	progress.emit(1.0, "LOADING_CITY")
+
+# Depth-only copies of the opaque city surfaces, drawn before them (see shaders/depth_prepass.gdshader).
+var prepass_nodes: Array[MeshInstance3D] = []
+static var _prepass_mat: ShaderMaterial
+
+func _add_prepass(mi: MeshInstance3D, file: String) -> void:
+	var path:= "res://assets/models/city/prepass/%s.res" % file.get_file().get_basename()
+	if not ResourceLoader.exists(path):
+		return
+	if _prepass_mat == null:
+		_prepass_mat = ShaderMaterial.new()
+		_prepass_mat.shader = load("res://shaders/depth_prepass.gdshader")
+		_prepass_mat.render_priority = 10
+	var am: ArrayMesh = load(path)
+	am.surface_set_material(0, _prepass_mat)
+	var pm:= MeshInstance3D.new()
+	pm.mesh = am
+	pm.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	pm.gi_mode = GeometryInstance3D.GI_MODE_DISABLED
+	add_child(pm)
+	pm.set_meta("chunk", mi)
+	prepass_nodes.append(pm)
 
 func _v3(a) -> Vector3:
 	return Vector3(float(a[0]), float(a[1]), float(a[2]))
@@ -504,6 +529,13 @@ func apply_settings() -> void:
 	for i in chunk_nodes.size():
 		chunk_nodes[i].visibility_range_end = vd + chunk_radius[i]
 		chunk_nodes[i].visibility_range_end_margin = 10.0
+	var pre: bool = Settings.g.get("depth_prepass", true)
+	for pm in prepass_nodes:
+		var cm: MeshInstance3D = pm.get_meta("chunk")
+		pm.visible = pre
+		# overdraw only costs much close up, where walls fill the screen
+		pm.visibility_range_end = minf(cm.visibility_range_end, 110.0)
+		pm.visibility_range_end_margin = cm.visibility_range_end_margin
 
 	for i in prop_nodes.size():
 		prop_nodes[i].visibility_range_end = minf(prop_range[i], vd * 0.85 + 6.0)
@@ -530,9 +562,26 @@ func update(delta: float, focus: Vector3) -> void:
 	if _audio_timer <= 0.0:
 		_audio_timer = 0.5
 		_update_audio(focus)
+		_update_particles(focus)
 	for f in fire_nodes:
 		f["light"].light_energy = f["base"] * (0.75 + 0.25 * sin(_time * 13.0) * sin(_time * 7.3 + 1.0))
 	Prof.e("city_update")
+
+# CPU particles simulate and upload their buffers every frame even when nobody can see them: run only the near ones
+const PARTICLE_RANGE:= 45.0
+func _update_particles(focus: Vector3) -> void:
+	for p in steam_nodes:
+		_particle_active(p, p.global_position.distance_to(focus) < PARTICLE_RANGE)
+	for f in fire_nodes:
+		var near: bool = f["light"].global_position.distance_to(focus) < PARTICLE_RANGE + 10.0
+		for p in f["parts"]:
+			_particle_active(p, near)
+
+func _particle_active(p: Node3D, on: bool) -> void:
+	if p.visible == on:
+		return
+	p.visible = on
+	p.process_mode = Node.PROCESS_MODE_INHERIT if on else Node.PROCESS_MODE_DISABLED
 
 func _assign_lights(focus: Vector3) -> void:
 	var count: int = Settings.g["lights"]

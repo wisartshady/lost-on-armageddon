@@ -78,12 +78,15 @@ func _job(root: Node, f: Callable) -> void:
 func _car(root: Node3D, model: String, pos: Vector3, facing: Vector3, paint: Color, siren:= true, open_window:= false) -> MeshInstance3D:
 	var xf:= Transform3D(Basis(Vector3.UP, _face(facing)), pos)
 	var mi:= VehicleLib.spawn(root, model, xf, paint, 0.25)
-	mi.set_instance_shader_parameter("siren", 1.0 if siren else 0.0)
-	mi.set_instance_shader_parameter("lights_on", 0.0)
+	VehicleLib.set_param(mi, "siren", 1.0 if siren else 0.0)
+	VehicleLib.set_param(mi, "lights_on", 0.0)
 	if open_window:
 		var m:= VehicleLib.material().duplicate() as ShaderMaterial
 		m.shader = load("res://shaders/vehicle_open.gdshader")
 		mi.material_override = m
+		var near:= mi.get_node_or_null("Near") as GeometryInstance3D
+		if near:
+			near.set_instance_shader_parameter("window_open", 1.0)
 	return mi
 
 func _person(root: Node3D, profile: String, pos: Vector3, facing: Vector3, anim: String, lean:= 0.0, over:= {}) -> CharacterVisual:
