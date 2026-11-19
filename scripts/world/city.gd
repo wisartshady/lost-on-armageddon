@@ -54,6 +54,7 @@ func build() -> void:
 		if i % 6 == 0:
 			progress.emit(0.1 + 0.6 * float(i) / n, "LOADING_CITY")
 			await get_tree().process_frame
+	_build_patches()
 	_build_instanced()
 	_build_vehicles()
 	_build_surface_lookup()
@@ -72,6 +73,58 @@ func build() -> void:
 	apply_settings()
 	Settings.changed.connect(func (_s): apply_settings())
 	progress.emit(1.0, "LOADING_CITY")
+
+# Wall strips that close the see-through gaps above some shop doors and shutters (found by tools/find_shop_gaps.gd)
+func _build_patches() -> void:
+	if not FileAccess.file_exists("res://data/shop_patches.json"):
+		return
+	var list: Array = JSON.parse_string(FileAccess.get_file_as_string("res://data/shop_patches.json"))
+	if list.is_empty():
+		return
+	var V:= PackedVector3Array()
+	var N:= PackedVector3Array()
+	var U:= PackedVector2Array()
+	var U2:= PackedVector2Array()
+	var C:= PackedColorArray()
+	var I:= PackedInt32Array()
+	var box:= BoxMesh.new()
+	box.size = Vector3.ONE
+	var ba:= box.get_mesh_arrays()
+	var bv: PackedVector3Array = ba[Mesh.ARRAY_VERTEX]
+	var bn: PackedVector3Array = ba[Mesh.ARRAY_NORMAL]
+	var bi: PackedInt32Array = ba[Mesh.ARRAY_INDEX]
+	for e in list:
+		var out:= Vector3(float(e["out"][0]), 0.0, float(e["out"][1]))
+		var tan:= Vector3(-out.z, 0.0, out.x)
+		var depth:= 0.3
+		var b:= Basis(tan, Vector3.UP, out)
+		var xf:= Transform3D(b * Basis.from_scale(Vector3(float(e["w"]), float(e["h"]), depth)), _v3(e["c"]) - out * (depth * 0.5 - 0.02))
+		var base:= V.size()
+		for k in bv.size():
+			var wp:= xf * bv[k]
+			V.append(wp)
+			N.append((b * bn[k]).normalized())
+			U.append(Vector2(wp.dot(tan), -wp.y))
+			U2.append(Vector2(roundf(float(e["uv2"][0])), roundf(float(e["uv2"][1]))))
+			C.append(Color(float(e["col"][0]), float(e["col"][1]), float(e["col"][2]), float(e["col"][3])))
+		for k in bi:
+			I.append(base + k)
+	var arr:= []
+	arr.resize(Mesh.ARRAY_MAX)
+	arr[Mesh.ARRAY_VERTEX] = V
+	arr[Mesh.ARRAY_NORMAL] = N
+	arr[Mesh.ARRAY_TEX_UV] = U
+	arr[Mesh.ARRAY_TEX_UV2] = U2
+	arr[Mesh.ARRAY_COLOR] = C
+	arr[Mesh.ARRAY_INDEX] = I
+	var am:= ArrayMesh.new()
+	am.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arr)
+	var mi:= MeshInstance3D.new()
+	mi.mesh = am
+	mi.material_override = Mats.get_mat("surf")
+	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	mi.visibility_range_end = 160.0
+	add_child(mi)
 
 # Depth-only copies of the opaque city surfaces, drawn before them (see shaders/depth_prepass.gdshader).
 var prepass_nodes: Array[MeshInstance3D] = []

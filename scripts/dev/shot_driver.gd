@@ -55,6 +55,7 @@ func _sample(delta: float) -> void:
 
 var _follow: Array = []
 var _show_car: MeshInstance3D
+var _follow_ped:= -1
 var _game_time:= true
 
 
@@ -66,7 +67,7 @@ func _update_follow() -> void:
 		free_cam.fov = 50.0
 		free_cam.far = 1600.0
 		main.world.add_child(free_cam)
-	var pl: Node3D = main.player
+	var pl: Node3D = main.player if _follow_ped < 0 else main.peds[_follow_ped]
 	var b:= Basis(Vector3.UP, pl.visual.global_rotation.y)
 	var off:= b * Vector3(float(_follow[0]), float(_follow[1]), float(_follow[2]))
 	var target:= pl.global_position + Vector3(0, float(_follow[3]) if _follow.size() > 3 else 1.0, 0)
@@ -200,6 +201,8 @@ func _process(delta: float) -> void:
 		if c.has("follow"):
 			# free camera placed relative to the player: [right, up, back] offsets in the player's facing frame
 			_follow = c["follow"]
+		if c.has("follow_ped"):
+			_follow_ped = int(c["follow_ped"])
 		if c.has("unfollow"):
 			_follow = []
 		if c.has("cam_rel"):

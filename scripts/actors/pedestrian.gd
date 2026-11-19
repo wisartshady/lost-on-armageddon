@@ -23,6 +23,8 @@ var _u_prev_vel:= Vector3.ZERO
 var _u_thresh:= 0.12
 var _u_delay:= 0.0
 var _gust:= randf() * 100.0
+static var _umb_mat: ShaderMaterial
+var _umb_meshes: Array[MeshInstance3D] = []
 
 func setup(profile: String, waypoints: Array, start: int, coat: Color, umbrella_col: Color) -> void:
 	visual = CharacterVisual.new()
@@ -38,21 +40,17 @@ func setup(profile: String, waypoints: Array, start: int, coat: Color, umbrella_
 	idx = (idx + 1) % path.size()
 	speed = randf_range(1.15, 1.45)
 	visual.play("Walk_Loop", 0.0, speed / 1.45)
-	var scn: PackedScene = load("res://assets/models/props/umbrella.scn")
+	var scn: PackedScene = load("res://assets/models/props/umbrella.glb")
 	umbrella = scn.instantiate()
+	if _umb_mat == null:
+		_umb_mat = ShaderMaterial.new()
+		_umb_mat.shader = preload("res://shaders/umbrella.gdshader")
 	for mi in _meshes(umbrella):
-		for s in mi.mesh.get_surface_count():
-			var m:= ShaderMaterial.new()
-			m.shader = preload("res://shaders/character.gdshader")
-			m.set_shader_parameter("use_albedo", false)
-			m.set_shader_parameter("use_normal", false)
-			var src:= mi.mesh.surface_get_material(s)
-			var col:= umbrella_col if src and src.resource_name == "canopy" else Color(0.1, 0.1, 0.1)
-			m.set_shader_parameter("color", col)
-			m.set_shader_parameter("roughness_v", 0.35)
-			m.set_shader_parameter("specular_v", 0.6)
-			mi.set_surface_override_material(s, m)
+		mi.material_override = _umb_mat
 		mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		mi.set_instance_shader_parameter("canopy", umbrella_col)
+		mi.set_instance_shader_parameter("phase", randf() * 20.0)
+		_umb_meshes.append(mi)
 	add_child(umbrella)
 	umbrella.top_level = true
 
@@ -131,6 +129,7 @@ func _process(delta: float) -> void:
 		if d < 12.0 and visual.hitboxes.is_empty():
 			visual.build_hitboxes(self)
 	global_position += dir * spd * delta
+	_update_umbrella(delta, dir * spd)
 	visual.rotation.y = lerp_angle(visual.rotation.y, atan2(-dir.x, -dir.z), clampf(5.0 * delta, 0.0, 1.0))
 	arm.sway = sin(Time.get_ticks_msec() * 0.003 + speed * 10.0) * 0.04
 
@@ -212,6 +211,10 @@ func _update_umbrella(delta: float, vel: Vector3) -> void:
 	var axis:= Vector3.UP.cross(_u_axis)
 	arm.held_tilt = Basis(axis.normalized(), Vector3.UP.angle_to(_u_axis)) if axis.length() > 0.0001 else Basis.IDENTITY
 
+	# the canopy folds in the shader (umbrella.gdshader) instead of being squashed
 	var o:= clampf(_u_open, 0.0, 1.1)
-	arm.held_scale = Vector3(lerpf(0.11, 1.0, o), lerpf(1.06, 1.0, minf(o, 1.0)), lerpf(0.11, 1.0, o))
+	arm.held_scale = Vector3.ONE * lerpf(1.0, 1.03, maxf(o - 1.0, 0.0) * 10.0)
+	for mi in _umb_meshes:
+		mi.set_instance_shader_parameter("open", minf(o, 1.0))
+		mi.set_instance_shader_parameter("wind", (W.wind if W else 0.4) + gust.length() * 0.15)
 	arm.sway = sin(Time.get_ticks_msec() * 0.003 + speed * 10.0) * 0.03
