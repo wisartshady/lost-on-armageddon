@@ -28,6 +28,9 @@ var _rain_quality:= 1.0
 var _cloud_t:= 0.0
 var _cloud_off:= Vector2.ZERO
 var _base_fog:= 0.016
+var _sky_meta:= {}
+# v0.2.4: the whole city was too foggy; every weather now has 30% less fog than before
+const FOG_SCALE:= 0.7
 
 func _ready() -> void:
 	WeatherSim.current = weather
@@ -41,7 +44,15 @@ func _build_environment() -> void:
 	var sky:= Sky.new()
 	sky_mat = ShaderMaterial.new()
 	sky_mat.shader = load("res://shaders/sky.gdshader")
-	sky_mat.set_shader_parameter("clouds", load("res://assets/textures/clouds.png"))
+	for k in ["clear", "cloudy", "overcast", "dusk", "night"]:
+		sky_mat.set_shader_parameter("sky_" + k, load("res://assets/textures/sky/sky_%s.jpg" % k))
+	_sky_meta = JSON.parse_string(FileAccess.get_file_as_string("res://data/skies.json"))
+	var els:= []
+	for k in ["clear", "cloudy", "overcast", "dusk"]:
+		els.append(deg_to_rad(float(_sky_meta["sky_" + k]["sun_el"])))
+	sky_mat.set_shader_parameter("photo_sun_el", Vector4(els[0], els[1], els[2], els[3]))
+	var md:= Vector3(-0.3, 0.55, -0.78)
+	sky_mat.set_shader_parameter("night_turn", float(_sky_meta["sky_night"]["sun_az"]) / 360.0 - (atan2(md.x, -md.z) / TAU + 0.5))
 	sky.sky_material = sky_mat
 	sky.radiance_size = Sky.RADIANCE_SIZE_32
 	sky.process_mode = Sky.PROCESS_MODE_QUALITY
@@ -58,7 +69,7 @@ func _build_environment() -> void:
 	env.fog_light_energy = 1.0
 	env.fog_density = 0.016
 	env.fog_sky_affect = 0.35
-	env.fog_aerial_perspective = 0.0
+	env.fog_aerial_perspective = 0.45
 	env.glow_enabled = true
 	env.glow_intensity = 0.9
 	env.glow_strength = 1.0
@@ -344,8 +355,8 @@ func _update_weather(delta: float) -> void:
 
 	var fog_day:= Color(0.6, 0.64, 0.7).lerp(Color(0.66, 0.67, 0.69), cover)
 	env.fog_light_color = NIGHT_FOG.lerp(fog_day, day)
-	env.fog_density = _base_fog * lerpf(1.0, W.fog_mult, 0.75 + 0.25 * day) * lerpf(1.0, 0.75, day * (1.0 - cover))
-	env.fog_sky_affect = lerpf(0.35, 0.6 + 0.35 * cover, day)
+	env.fog_density = _base_fog * FOG_SCALE * lerpf(1.0, W.fog_mult, 0.75 + 0.25 * day) * lerpf(1.0, 0.75, day * (1.0 - cover))
+	env.fog_sky_affect = lerpf(0.35, 0.25 + 0.6 * cover, day)
 	env.tonemap_exposure = lerpf(1.3, 0.95 + 0.12 * cover, day)
 	env.glow_intensity = lerpf(0.9, 0.35, day)
 	_global("daylight", snappedf(day, 0.002))
@@ -359,12 +370,16 @@ func _update_weather(delta: float) -> void:
 	var sd:= -W.sun_dir
 	_param(sky_mat, "sun_dir", Vector3(snappedf(sd.x, 0.002), snappedf(sd.y, 0.002), snappedf(sd.z, 0.002)))
 	_param(sky_mat, "sun_col", Vector3(snappedf(sun_col.r, 0.01), snappedf(sun_col.g, 0.01), snappedf(sun_col.b, 0.01)))
+	_param(sky_mat, "dusk", snappedf(1.0 - smoothstep(0.05, 0.3, elev), 0.004))
+	if not _sky_meta.is_empty():
+		var ug:= atan2(sd.x, -sd.z) / TAU + 0.5
+		var tv:= Vector4.ZERO
+		for i in 4:
+			var k: String = ["sky_clear", "sky_cloudy", "sky_overcast", "sky_dusk"][i]
+			tv[i] = snappedf(fposmod(float(_sky_meta[k]["sun_az"]) / 360.0 - ug, 1.0), 0.0005)
+		_param(sky_mat, "turn", tv)
 	_cloud_t += delta
-	if _cloud_t > 0.5:
-		_cloud_t = 0.0
-		_cloud_off += Vector2(0.0008, 0.0003) * (0.5 + W.wind)
-		_cloud_off = Vector2(fposmod(_cloud_off.x, 1.0), fposmod(_cloud_off.y, 1.0))
-		sky_mat.set_shader_parameter("cloud_offset", _cloud_off)
+
 
 	var amount:= clampf(W.rain * 1.15, 0.0, 1.0) * _rain_quality
 	rain_mm.visible = amount > 0.01

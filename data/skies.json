@@ -1,0 +1,62 @@
+{
+ "sky_clear": {
+  "source": "kloofendal_48d_partly_cloudy_puresky",
+  "exposure": 0.87095,
+  "sun_az": 214.21,
+  "sun_el": 47.92,
+  "peak": 74608.8,
+  "horizon": [
+   0.6051,
+   0.6236,
+   0.6715
+  ]
+ },
+ "sky_cloudy": {
+  "source": "kloppenheim_03_puresky",
+  "exposure": 0.65483,
+  "sun_az": 216.02,
+  "sun_el": 58.67,
+  "peak": 40176.9,
+  "horizon": [
+   0.5143,
+   0.527,
+   0.5398
+  ]
+ },
+ "sky_overcast": {
+  "source": "kloofendal_overcast_puresky",
+  "exposure": 0.39997,
+  "sun_az": 213.03,
+  "sun_el": 22.68,
+  "peak": 6.0,
+  "horizon": [
+   0.5193,
+   0.5301,
+   0.5518
+  ]
+ },
+ "sky_dusk": {
+  "source": "industrial_sunset_02_puresky",
+  "exposure": 0.46782,
+  "sun_az": 215.93,
+  "sun_el": 2.82,
+  "peak": 3360.9,
+  "horizon": [
+   0.6713,
+   0.5686,
+   0.5909
+  ]
+ },
+ "sky_night": {
+  "source": "kloppenheim_07_puresky",
+  "exposure": 0.11764,
+  "sun_az": 214.93,
+  "sun_el": 38.46,
+  "peak": 27.6,
+  "horizon": [
+   0.2195,
+   0.2141,
+   0.2118
+  ]
+ }
+}

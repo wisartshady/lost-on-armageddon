@@ -10,7 +10,7 @@ const WALK:= 2.0
 const RUN:= 5.6
 const CROUCH:= 1.1
 const ACCEL:= 10.0
-const JUMP_V:= 5.0
+const JUMP_V:= 4.4
 const GRAVITY:= 15.0
 const STEP:= 0.38
 const EYE_H:= 1.6
@@ -51,9 +51,15 @@ var _step_dist:= 0.0
 var _air_t:= 0.0
 var _jump_t:= -1.0
 var _jump_run:= false
+var _air_from_run:= false
+var _land_t:= -1.0
+var _land_amount:= 0.0
+var _jpose: JumpPoseModifier
 var _land_slow:= 0.0
 var _mi:= MoveInput.new()
 var _fall: FallPoseModifier
+var _posture: PostureModifier
+var _air_top:= 0.0
 var _warp_ready:= false
 var climbing:= false
 var _latched_dir:= Vector3.ZERO
@@ -156,6 +162,10 @@ func _ready() -> void:
 	Settings.changed.connect(func (_s): camera.fov = Settings.c["fov"])
 	camera.fov = Settings.c["fov"]
 
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_APPLICATION_FOCUS_OUT or what == NOTIFICATION_WM_WINDOW_FOCUS_OUT or what == NOTIFICATION_PAUSED:
+		_mi.reset()
+
 func get_yaw() -> float:
 	return yaw
 
@@ -181,6 +191,7 @@ func set_camera_mode(mode: String, instant:= false) -> void:
 		_cam_blend = 1.0 if mode == "fp" else 0.0
 
 func _input(event: InputEvent) -> void:
+	_mi.on_event(event)
 	if look_locked or get_tree().paused:
 		return
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -298,29 +309,41 @@ func _physics_process(delta: float) -> void:
 
 	if _jump_t >= 0.0:
 		_jump_t += delta
-		if _jump_t >= (0.11 if _jump_run else 0.15):
+		if _jump_t >= (JUMP_LOAD_RUN if _jump_run else JUMP_LOAD):
 			_jump_t = -1.0
 			if is_on_floor():
 				velocity.y = JUMP_V
-				var air:= "MJump_Run_Air" if _jump_run else "MJump_Stand_Air"
-				if visual.anim.has_animation(air):
-					visual.play_action(air, 2.0, 0.06)
-
-					visual.anim.speed_scale = visual.anim.get_animation(air).length / (2.0 * JUMP_V / GRAVITY)
+				_launch_air_clip()
 	var pre:= global_position
 	move_and_slide()
 
 	if (is_on_floor() or _was_on_floor) and is_on_wall() and dir.length() > 0.1:
 		_try_step(Vector3(target.x, 0, target.z) * delta)
 
+	if _posture == null and visual.skeleton:
+		_posture = PostureModifier.new()
+		visual.skeleton.add_child(_posture)
+		visual.skeleton.move_child(_posture, 0)
+	if _posture:
+		var hs:= Vector2(velocity.x, velocity.z).length()
+		var lean_deg:= 2.0 if hs < 0.3 else (lerpf(3.0, 5.0, clampf((hs - 0.3) / 2.0, 0.0, 1.0)) if hs < 2.6 else lerpf(6.0, 12.0, clampf((hs - 2.6) / 3.0, 0.0, 1.0)))
+		_posture.target_lean = lerp_angle(_posture.target_lean, deg_to_rad(lean_deg), clampf(delta * 6.0, 0.0, 1.0))
+		_posture.weight = move_toward(_posture.weight, 0.0 if (crouching or climbing or _collapse_t > 0.0) else 1.0, delta * 4.0)
 	if _fall == null and visual.skeleton:
 		_fall = FallPoseModifier.new()
 		visual.skeleton.add_child(_fall)
+	if is_on_floor():
+		_air_top = global_position.y
+	else:
+		_air_top = maxf(_air_top, global_position.y)
 	if _fall:
-		var falling:= not is_on_floor() and not climbing and _air_t > 0.32 and velocity.y < -1.0
+		# only a real fall (well below where the jump peaked) flails the arms; a normal jump keeps its own pose
+		var falling:= not is_on_floor() and not climbing and _air_top - global_position.y > 1.6 and velocity.y < -4.0
 		_fall.weight = move_toward(_fall.weight, 1.0 if falling else 0.0, delta * (2.6 if falling else 9.0))
 
 	if not is_on_floor():
+		if _air_t == 0.0:
+			_air_from_run = _jump_run or Vector2(velocity.x, velocity.z).length() > 3.2
 		_air_t += delta
 		_fall_v = minf(_fall_v, velocity.y)
 	else:
@@ -339,6 +362,7 @@ func _physics_process(delta: float) -> void:
 		visual.rotation.y = lerp_angle(visual.rotation.y, atan2(-dir.x, -dir.z), clampf(10.0 * delta, 0.0, 1.0))
 	if _collapse_t <= 0.0:
 		visual.locomotion(moved, is_on_floor(), crouching, delta)
+	_update_jump_pose(delta)
 	_update_power_pose(delta)
 
 	if _feet == null or not _feet.ready:
@@ -379,34 +403,85 @@ func _auto_camera(delta: float) -> void:
 	if w > 0.0:
 		pitch_t = lerpf(pitch_t, -0.14, (1.0 - exp(-delta * 0.7)) * w)
 
+const JUMP_LOAD:= 0.14        # standing jump: knees load before take-off
+const JUMP_LOAD_RUN:= 0.05    # running jump: one quick dip in stride
+
 func _begin_jump() -> void:
 	_jump_run = Vector2(velocity.x, velocity.z).length() > 3.2
-	var clip:= "MJump_Run_Start" if _jump_run else "MJump_Stand_Start"
-	if not visual.anim.has_animation(clip):
-		velocity.y = JUMP_V
-		visual.play_action("Jump_Start", 0.25)
-		return
 	_jump_t = 0.0
-	visual.play_action(clip, 0.6, 0.08)
-	visual.anim.speed_scale = visual.anim.get_animation(clip).length / (0.11 if _jump_run else 0.15)
+	_land_t = -1.0
+
+func _launch_air_clip() -> void:
+	var flight:= 2.0 * JUMP_V / GRAVITY
+	if _jump_run and visual.anim.has_animation("MJump_Run_Air"):
+		# the leap part of the clip only (lead knee up, arms counter-swinging); its later frames fling the arms wide
+		var a:= visual.anim.get_animation("MJump_Run_Air")
+		visual.play_action("MJump_Run_Air", flight + 0.2, 0.08)
+		visual.anim.speed_scale = a.length * 0.42 / flight
+	elif visual.anim.has_animation("MJump_Stand_Air"):
+		var b:= visual.anim.get_animation("MJump_Stand_Air")
+		visual.play_action("MJump_Stand_Air", flight + 0.2, 0.1)
+		visual.anim.speed_scale = b.length * 0.8 / flight
 
 func _land(moving: bool) -> void:
 	var hv:= Vector2(velocity.x, velocity.z).length()
-	var clip:= "MJump_Stand_Land"
-	var lock:= 0.45
+	_land_t = 0.0
 	if _fall_v < -10.5:
-		clip = "MLand_Hard"
-		lock = 0.42
+		_land_amount = 1.0
 		_land_slow = 0.35
 		_shake = maxf(_shake, 0.25)
-	elif hv > 3.0 or _jump_run:
-		clip = "MJump_Run_Land"
-		lock = 0.16
-	elif moving:
-		lock = 0.14
+		if visual.anim.has_animation("MLand_Hard"):
+			visual.play_action("MLand_Hard", 0.42, 0.07)
+	else:
+		# knees take the landing: deeper for a high drop, shallow when landing in a run
+		_land_amount = clampf(-_fall_v / 11.0, 0.22, 0.8) * (0.55 if hv > 3.0 else 1.0)
+		visual.action_lock = 0.0
+		visual.anim.speed_scale = 1.0
 	_jump_run = false
-	if visual.anim.has_animation(clip):
-		visual.play_action(clip, lock, 0.07)
+
+## Drives the procedural jump layer: load before take-off, tuck and arms in the air, landing absorption.
+func _update_jump_pose(delta: float) -> void:
+	if _jpose == null and visual.skeleton:
+		_jpose = JumpPoseModifier.new()
+		visual.skeleton.add_child(_jpose)
+	if _jpose == null:
+		return
+	var c:= 0.0
+	var t:= 0.0
+	var ar:= 0.0
+	if _jump_t >= 0.0:
+		var T:= JUMP_LOAD_RUN if _jump_run else JUMP_LOAD
+		var k:= smoothstep(0.0, 1.0, _jump_t / T)
+		c = k * (0.28 if _jump_run else 0.7)
+		ar = -k * (0.0 if _jump_run else 0.8)
+	elif not is_on_floor() and not climbing:
+		var up_phase:= velocity.y > 0.0
+		var near:= _ground_below(0.7) if velocity.y < 0.0 else false
+		t = (0.85 if up_phase else 0.45) * (0.3 if _air_from_run else 1.0)
+		ar = 0.0 if _air_from_run else (0.6 if up_phase else 0.35)
+		if near:
+			t = 0.0
+			ar *= 0.5
+		if _air_top - global_position.y > 1.6:
+			t = 0.0
+			ar = 0.0
+	if _land_t >= 0.0:
+		_land_t += delta
+		var tau:= 0.075
+		var x:= _land_t / tau
+		c = maxf(c, _land_amount * x * exp(1.0 - x))
+		if _land_t > 0.6:
+			_land_t = -1.0
+	var rate:= 14.0
+	_jpose.crouch = c if _land_t >= 0.0 or _jump_t >= 0.0 else move_toward(_jpose.crouch, c, delta * 6.0)
+	_jpose.tuck = lerpf(_jpose.tuck, t, clampf(delta * 9.0, 0.0, 1.0))
+	_jpose.arms = lerpf(_jpose.arms, ar, clampf(delta * rate, 0.0, 1.0))
+	_jpose.weight = 0.0 if (crouching or _collapse_t > 0.0) else 1.0
+
+func _ground_below(dist: float) -> bool:
+	var q:= PhysicsRayQueryParameters3D.create(global_position + Vector3(0, 0.1, 0), global_position - Vector3(0, dist, 0), 1)
+	q.exclude = [get_rid()]
+	return not get_world_3d().direct_space_state.intersect_ray(q).is_empty()
 
 func _climb_dir(move_dir: Vector3) -> Vector3:
 	if move_dir.length() > 0.2:

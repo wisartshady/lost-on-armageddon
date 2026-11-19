@@ -26,5 +26,14 @@
  "mud": {
   "count": 6,
   "centroid_hz": 5447
+ },
+ "carroof": {
+  "count": 12
+ },
+ "manhole": {
+  "count": 12
+ },
+ "metal": {
+  "count": 12
  }
 }

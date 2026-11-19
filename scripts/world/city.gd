@@ -171,7 +171,31 @@ func _build_surface_lookup() -> void:
 			_manhole_grid[k] = []
 		_manhole_grid[k].append(m)
 
+# parked vehicle footprints, so steps on a roof or bonnet sound like sheet steel
+var _vehicle_grid:= {}
+
+func _add_vehicle_top(xf: Transform3D, width: float, length: float) -> void:
+	var e:= [xf.affine_inverse(), width * 0.5 + 0.08, length * 0.5 + 0.08]
+	var r:= maxf(width, length) * 0.5 + 0.2
+	var k0:= _grid_key(xf.origin.x - r, xf.origin.z - r)
+	var k1:= _grid_key(xf.origin.x + r, xf.origin.z + r)
+	for x in range(k0.x, k1.x + 1):
+		for z in range(k0.y, k1.y + 1):
+			var k:= Vector2i(x, z)
+			if not _vehicle_grid.has(k):
+				_vehicle_grid[k] = []
+			_vehicle_grid[k].append(e)
+
+func on_vehicle(p: Vector3) -> bool:
+	for e in _vehicle_grid.get(_grid_key(p.x, p.z), []):
+		var l: Vector3 = e[0] * p
+		if absf(l.x) < e[1] and absf(l.z) < e[2] and l.y > 0.45:
+			return true
+	return false
+
 func surface_at(p: Vector3) -> String:
+	if p.y > 0.45 and on_vehicle(p):
+		return "carroof"
 	var k:= _grid_key(p.x, p.z)
 	for dx in [-1, 0, 1]:
 		for dz in [-1, 0, 1]:
@@ -201,6 +225,7 @@ func _build_vehicles() -> void:
 		parked.append(mi)
 		var m: Dictionary = VehicleLib.meta.get(model, {"length": 4.6, "width": 1.9})
 		shadows.append([xf, Vector2(float(m["width"]) * VehicleLib.SCALE + 0.45, float(m["length"]) * VehicleLib.SCALE + 0.55)])
+		_add_vehicle_top(xf, float(m["width"]) * VehicleLib.SCALE, float(m["length"]) * VehicleLib.SCALE)
 	if not shadows.is_empty():
 		VehicleLib.shadows(self, shadows)
 

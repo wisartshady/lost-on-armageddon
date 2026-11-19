@@ -12,8 +12,8 @@ const STATES:= {
 	"rain": [0.72, 1.0, 1.55, 0.1, false, 0.5],
 	"storm": [1.0, 1.0, 1.75, 0.05, true, 0.8],
 }
-const NEXT_DAY:= {"clear": 30, "cloudy": 26, "fog": 24, "drizzle": 10, "rain": 8, "storm": 2}
-const NEXT_NIGHT:= {"clear": 20, "cloudy": 24, "fog": 18, "drizzle": 14, "rain": 16, "storm": 8}
+const NEXT_DAY:= {"clear": 38, "cloudy": 26, "fog": 16, "drizzle": 10, "rain": 8, "storm": 2}
+const NEXT_NIGHT:= {"clear": 26, "cloudy": 24, "fog": 14, "drizzle": 14, "rain": 14, "storm": 8}
 
 var hour:= 14.5
 var state:= "fog"

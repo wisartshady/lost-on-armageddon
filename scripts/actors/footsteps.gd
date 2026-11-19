@@ -72,6 +72,8 @@ static func _base_for(surface: String) -> String:
 			return "wood"
 		"metal":
 			return "metal"
+		"carroof", "manhole":
+			return surface
 		"carpet":
 			return "carpet"
 		"grass":
@@ -90,9 +92,11 @@ static func step(main: AudioStreamPlayer3D, layer: AudioStreamPlayer3D, surface:
 	var vol:= lerpf(-11.0, -5.0, clampf(p, 0.0, 1.0))
 	var pitch:= randf_range(0.95, 1.05) * lerpf(0.98, 1.03, p)
 	match base:
-		"metal":
-			vol -= 6.0
-			pitch *= randf_range(0.9, 1.0)
+		"metal", "carroof":
+			vol -= 2.0
+			pitch *= randf_range(0.94, 1.04)
+		"manhole":
+			pitch *= randf_range(0.95, 1.03)
 		"wood":
 			vol += 1.0
 		"grass", "gravel", "mud":

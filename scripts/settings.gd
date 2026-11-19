@@ -3,7 +3,7 @@ extends Node
 signal changed(section: String)
 
 const PATH:= "user://settings.cfg"
-const SETTINGS_VERSION:= 3
+const SETTINGS_VERSION:= 4
 const PRESET_KEYS:= ["render_scale", "dynamic_res", "view_distance", "shadows", "lights", "glow", "fog", "rain",
 		"aa", "ssao", "ssr", "windows", "texq", "particles", "post"]
 
@@ -204,6 +204,9 @@ func _load() -> void:
 	for k in c.keys():
 		c[k] = cf.get_value("controls", k, c[k])
 	language = cf.get_value("general", "language", language)
+	if int(cf.get_value("general", "version", 0)) < 4:
+		# v0.2.4: sprint is hold-to-run again for everyone (toggle mode stays available in the controls menu)
+		c["sprint_toggle"] = false
 
 func _key(action: String, keys: Array) -> void:
 	if not InputMap.has_action(action):
@@ -235,6 +238,8 @@ func _setup_input() -> void:
 	_key("move_left", [KEY_A, KEY_LEFT]); _joy_axis("move_left", JOY_AXIS_LEFT_X, -1.0)
 	_key("move_right", [KEY_D, KEY_RIGHT]); _joy_axis("move_right", JOY_AXIS_LEFT_X, 1.0)
 	_key("sprint", [KEY_SHIFT]); _joy_button("sprint", JOY_BUTTON_LEFT_STICK)
+	if not InputMap.has_action("sprint_virtual"):
+		InputMap.add_action("sprint_virtual")   # test driver only
 	_key("jump", [KEY_SPACE]); _joy_button("jump", JOY_BUTTON_A)
 	_key("crouch", [KEY_CTRL, KEY_C]); _joy_button("crouch", JOY_BUTTON_B)
 	_key("interact", [KEY_E]); _joy_button("interact", JOY_BUTTON_X)
