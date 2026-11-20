@@ -588,7 +588,8 @@ def build_hood():
             a = neck_ring(th, 0.026)
             a.z -= 0.004
             back = axis_y(1.52) + hull_r(math.pi, 1.52)
-            b = Vector((u * 0.115, back + 0.06 - 0.01 * u * u, 1.565 - 0.035 * u * u))
+            # the empty hood stands up round the back of the neck (to the ears) before folding down the back
+            b = Vector((u * 0.125, back + 0.075 - 0.015 * u * u, 1.60 - 0.05 * u * u))
             zc = 1.405 + 0.05 * u * u
             c = Vector((u * 0.10, axis_y(zc) + hull_r(math.pi - u * 0.6, zc) * 0.98 + table_at(HOFF, zc)[2] + 0.006, zc))
             # quadratic bezier collar -> top fold -> lying on the back
@@ -609,11 +610,11 @@ def build_hood():
         row = []
         for j in range(NC + 1):
             th = th0 + j / NC * (TAU - 2 * th0)
-            p = neck_ring(th, 0.022 + 0.008 * k)
-            p.z += -0.02 + 0.036 * k
+            p = neck_ring(th, 0.022 + 0.012 * k)
+            p.z += -0.02 + (0.04 + 0.025 * max(-math.cos(th), 0.0)) * k
             row.append(p)
         band.append(row)
-    mb.grid(band, [[(0.85, 0.85, 0.85, 1.0)] * (NC + 1)] * 2, [[(j / NC * 0.45, k * 0.04) for j in range(NC + 1)] for k in range(2)])
+    mb.grid(band, [[(1.0, 1.0, 1.0, 1.0)] * (NC + 1)] * 2, [[(j / NC * 0.45, k * 0.04) for j in range(NC + 1)] for k in range(2)])
     ob = mb.obj('hoodie')
     outward(ob, lambda c: Vector((0, axis_y(min(c.z, 1.55)), c.z)))
     return ob

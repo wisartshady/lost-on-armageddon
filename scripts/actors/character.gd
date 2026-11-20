@@ -4,7 +4,7 @@ extends Node3D
 const TEX:= "res://assets/textures/characters/"
 const PROFILES:= {
 	"vaynara": {"model": "vaynara", "skin": "female_fair", "body": "female", "hair_tex": "hair2", "eye": "eye_teal",
-		"hair": Color(0.86, 0.68, 0.42), "brow": Color(0.46, 0.35, 0.23), "skin_tint": Color(1.0, 1.0, 1.0),
+		"hair": Color(0.86, 0.68, 0.42), "brow": Color(0.46, 0.35, 0.23), "skin_tint": Color(1.0, 1.0, 1.0), "hand_tint": Color(1.08, 0.98, 0.9),
 		"top": Color(0.15, 0.16, 0.155), "bottom": Color(0.11, 0.13, 0.19),
 		"shoes": Color(0.055, 0.05, 0.045), "detail": Color(0.78, 0.77, 0.74), "height": 1.74, "hero": true},
 	"gus": {"model": "gus", "skin": "male_light", "body": "male", "hair_tex": "hair1", "eye": "eye_brown",
@@ -123,11 +123,11 @@ func _collect_meshes(n: Node) -> void:
 const GARMENTS:= {
 	"skin_flat": ["", Color(0.72, 0.6, 0.52), Color(0.4, 0.3, 0.26), 1.0, 0.55, 0.35, 0.0, 2],
 	"crop": ["crop", Color(0.42, 0.075, 0.08), Color(0.22, 0.04, 0.045), 4.5, 0.85, 0.3, 0.0, 0],
-	"hoodie": ["hoodie", Color(0.29, 0.27, 0.245), Color(0.36, 0.34, 0.31), 3.7, 0.9, 0.25, 0.0, 0],
-	"zipper": ["", Color(0.22, 0.2, 0.185), Color(0.12, 0.11, 0.1), 1.0, 0.8, 0.3, 0.0, 1],
+	"hoodie": ["hoodie", Color(0.34, 0.295, 0.25), Color(0.4, 0.36, 0.31), 3.7, 0.9, 0.25, 0.0, 0],
+	"zipper": ["", Color(0.3, 0.265, 0.225), Color(0.2, 0.18, 0.16), 1.0, 0.8, 0.3, 0.0, 1],
 	"string": ["crop", Color(0.3, 0.3, 0.31), Color(0.2, 0.2, 0.2), 9.0, 0.9, 0.25, 0.0, 0],
 	"denim": ["denim", Color(0.075, 0.08, 0.115), Color(0.06, 0.065, 0.08), 3.7, 0.88, 0.3, 0.0, 0],
-	"leather": ["leather", Color(0.065, 0.058, 0.052), Color(0.08, 0.07, 0.065), 3.0, 0.55, 0.45, 0.0, 0],
+	"leather": ["leather", Color(0.07, 0.062, 0.056), Color(0.08, 0.07, 0.065), 3.0, 0.72, 0.3, 0.0, 0],
 	"metal": ["", Color(0.6, 0.6, 0.62), Color(0.3, 0.3, 0.3), 1.0, 0.35, 0.6, 0.9, 0],
 }
 
@@ -214,6 +214,7 @@ func _material(slot: String) -> ShaderMaterial:
 			m.set_shader_parameter("use_rough", true)
 			m.set_shader_parameter("specular_v", 0.35)
 			m.set_shader_parameter("wet_response", 0.7)
+			m.set_shader_parameter("color", profile.get("hand_tint", Color(1, 1, 1)))
 		"eyes":
 			m.set_shader_parameter("albedo_tex", _tex(profile["eye"]))
 			m.set_shader_parameter("normal_tex", _tex("eye_n"))

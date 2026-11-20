@@ -45,9 +45,9 @@
   "de": "PAUSIERT"
  },
  "MENU_CREDITS": {
-  "tr": "Karakterler ve animasyonlar: Quaternius (CC0) · Godot Engine ile yapıldı",
-  "en": "Characters and animations: Quaternius (CC0) · Made with Godot Engine",
-  "de": "Figuren und Animationen: Quaternius (CC0) · Erstellt mit der Godot Engine"
+  "tr": "Karakterler: Quaternius, MakeHuman (CC0) · Animasyonlar: Quaternius (CC0) · Dokular: Poly Haven (CC0) · Godot Engine ile yapıldı",
+  "en": "Characters: Quaternius, MakeHuman (CC0) · Animations: Quaternius (CC0) · Textures: Poly Haven (CC0) · Made with Godot Engine",
+  "de": "Figuren: Quaternius, MakeHuman (CC0) · Animationen: Quaternius (CC0) · Texturen: Poly Haven (CC0) · Erstellt mit der Godot Engine"
  },
  "LOADING": {
   "tr": "Yükleniyor...",

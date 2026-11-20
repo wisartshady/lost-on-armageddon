@@ -42,7 +42,7 @@ void fragment() {
 		float along = UV.y / 0.0042;
 		float side = UV.x;
 		float teeth = step(0.3, side) * step(side, 0.95) * step(0.35, fract(along + (side > 0.62 ? 0.5 : 0.0)));
-		alb = mix(color.rgb, vec3(0.32, 0.32, 0.34), teeth);
+		alb = mix(color.rgb, vec3(0.62, 0.62, 0.64), teeth);   // silver teeth
 		metal = teeth * 0.9;
 		rough = mix(0.8, 0.35, teeth);
 		spec = mix(0.3, 0.6, teeth);
