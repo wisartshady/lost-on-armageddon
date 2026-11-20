@@ -29,3 +29,12 @@ formats). New geometry is built with Blender (`pip install bpy`) or Godot tool s
 ## Rules
 - Only CC0 / OFL / free assets (CC-BY allowed with credit in the credits screen).
 - Release builds: 64-bit + 32-bit exe, zipped in parts with `KURULUM.bat`, version folder on the owner's desktop.
+
+## Where work stopped (2026-11-20 12:00)
+- v0.2.4 list: movement/sprint, posture, jump, metal/manhole sounds, decals, car interiors + glass, fog/sky,
+  umbrellas, shop gaps and real 3D shop interiors are done and pushed.
+- Next: rebuild Vaynara's clothes as separate garments (blonde bob, open dark-grey zip hoodie, red crop top with
+  midriff skin, slim dark jeans, tall black lace-up buckled boots). Current `vaynara.scn` has Body = arms/hands only
+  (no torso skin), Hoodie/Jeans/Boots/Collar/Hood/Strings skinned to a 65-bone UE-style skeleton; materials come from
+  `scripts/actors/character.gd` (_material, slot names) and `shaders/character.gdshader`.
+- Then: package v0.2.4 (64/32-bit exe, split zips + KURULUM.bat, desktop folder) and a Turkish report.
