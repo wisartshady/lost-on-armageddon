@@ -30,11 +30,13 @@ formats). New geometry is built with Blender (`pip install bpy`) or Godot tool s
 - Only CC0 / OFL / free assets (CC-BY allowed with credit in the credits screen).
 - Release builds: 64-bit + 32-bit exe, zipped in parts with `KURULUM.bat`, version folder on the owner's desktop.
 
-## Where work stopped (2026-11-20 12:00)
-- v0.2.4 list: movement/sprint, posture, jump, metal/manhole sounds, decals, car interiors + glass, fog/sky,
-  umbrellas, shop gaps and real 3D shop interiors are done and pushed.
-- Next: rebuild Vaynara's clothes as separate garments (blonde bob, open dark-grey zip hoodie, red crop top with
-  midriff skin, slim dark jeans, tall black lace-up buckled boots). Current `vaynara.scn` has Body = arms/hands only
-  (no torso skin), Hoodie/Jeans/Boots/Collar/Hood/Strings skinned to a 65-bone UE-style skeleton; materials come from
-  `scripts/actors/character.gd` (_material, slot names) and `shaders/character.gdshader`.
-- Then: package v0.2.4 (64/32-bit exe, split zips + KURULUM.bat, desktop folder) and a Turkish report.
+## State (2026-11-20 19:20): v0.2.4 delivered
+- Desktop folder "Lost on Armageddon v0.2.4" (KURULUM.bat + 18 zip parts). Builds: export_presets.cfg
+  (tools/, scripts/dev/ excluded); templates in ~/.local/share/godot/export_templates/4.7.2.stable.
+- Vaynara pipeline: tools/export_character_glb.gd (old model -> glb) -> tools/blender/vaynara_build.py (MakeHuman
+  CC0 body/head/hair via tools/blender/mh_human.py + garments) -> tools/build_vaynara.gd (binds to the original
+  skeleton/skin from tools/assets/vaynara_base.scn). Needs the MakeHuman repo clone and asset packs under
+  /home/claude/makehumancommunity and /home/claude/dl/mh (download URLs in mh_human.py / vaynara_build.py).
+- Shop interiors: tools/shop_interiors.py -> tools/build_shop_interiors.gd.
+- Open ideas: realistic MakeHuman hands (old stylized hands are kept), post/glow restructure for GPU time,
+  waiting for the owner's new benchmark_report.txt.
