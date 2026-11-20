@@ -4,8 +4,9 @@ extends Node3D
 const TEX:= "res://assets/textures/characters/"
 const PROFILES:= {
 	"vaynara": {"model": "vaynara", "skin": "female_fair", "body": "female", "hair_tex": "hair2", "eye": "eye_teal",
-		"hair": Color(1.18, 0.98, 0.66), "top": Color(0.15, 0.16, 0.155), "bottom": Color(0.11, 0.13, 0.19),
-		"shoes": Color(0.055, 0.05, 0.045), "detail": Color(0.78, 0.77, 0.74), "height": 1.7, "hero": true},
+		"hair": Color(0.86, 0.68, 0.42), "brow": Color(0.46, 0.35, 0.23), "skin_tint": Color(1.0, 1.0, 1.0),
+		"top": Color(0.15, 0.16, 0.155), "bottom": Color(0.11, 0.13, 0.19),
+		"shoes": Color(0.055, 0.05, 0.045), "detail": Color(0.78, 0.77, 0.74), "height": 1.74, "hero": true},
 	"gus": {"model": "gus", "skin": "male_light", "body": "male", "hair_tex": "hair1", "eye": "eye_brown",
 		"hair": Color(1.15, 1.13, 1.1), "top": Color(0.24, 0.18, 0.12), "bottom": Color(0.17, 0.16, 0.14),
 		"shoes": Color(0.08, 0.06, 0.05), "detail": Color(0.13, 0.2, 0.15), "height": 1.74},
@@ -40,7 +41,7 @@ const PROFILES:= {
 }
 const COAT_COLOURS:= [Color(0.1, 0.11, 0.14), Color(0.32, 0.25, 0.16), Color(0.35, 0.08, 0.08), Color(0.16, 0.16, 0.16),
 		Color(0.12, 0.2, 0.15), Color(0.42, 0.36, 0.28), Color(0.08, 0.08, 0.09)]
-const FP_HIDDEN:= ["Head", "Hair", "Brows", "Eyes", "Beard", "Beanie", "Collar", "Hood", "Strings"]
+const FP_HIDDEN:= ["Head", "Hair", "Brows", "Eyes", "Lashes", "Beard", "Beanie", "Collar", "Hood", "Strings"]
 
 var profile:= {}
 var model: Node3D
@@ -121,12 +122,12 @@ func _collect_meshes(n: Node) -> void:
 # roughness, specular, metallic, pattern (0 cloth, 1 zip, 2 skin)
 const GARMENTS:= {
 	"skin_flat": ["", Color(0.72, 0.6, 0.52), Color(0.4, 0.3, 0.26), 1.0, 0.55, 0.35, 0.0, 2],
-	"crop": ["crop", Color(0.6, 0.055, 0.065), Color(0.3, 0.03, 0.035), 4.5, 0.9, 0.3, 0.0, 0],
-	"hoodie": ["hoodie", Color(0.21, 0.21, 0.21), Color(0.34, 0.34, 0.34), 3.7, 0.92, 0.25, 0.0, 0],
-	"zipper": ["", Color(0.07, 0.07, 0.075), Color(0.05, 0.05, 0.05), 1.0, 0.8, 0.3, 0.0, 1],
+	"crop": ["crop", Color(0.42, 0.075, 0.08), Color(0.22, 0.04, 0.045), 4.5, 0.85, 0.3, 0.0, 0],
+	"hoodie": ["hoodie", Color(0.29, 0.27, 0.245), Color(0.36, 0.34, 0.31), 3.7, 0.9, 0.25, 0.0, 0],
+	"zipper": ["", Color(0.22, 0.2, 0.185), Color(0.12, 0.11, 0.1), 1.0, 0.8, 0.3, 0.0, 1],
 	"string": ["crop", Color(0.3, 0.3, 0.31), Color(0.2, 0.2, 0.2), 9.0, 0.9, 0.25, 0.0, 0],
-	"denim": ["denim", Color(0.085, 0.09, 0.115), Color(0.06, 0.065, 0.08), 3.7, 0.9, 0.3, 0.0, 0],
-	"leather": ["leather", Color(0.05, 0.048, 0.047), Color(0.08, 0.07, 0.065), 3.0, 0.42, 0.5, 0.0, 0],
+	"denim": ["denim", Color(0.075, 0.08, 0.115), Color(0.06, 0.065, 0.08), 3.7, 0.88, 0.3, 0.0, 0],
+	"leather": ["leather", Color(0.065, 0.058, 0.052), Color(0.08, 0.07, 0.065), 3.0, 0.55, 0.45, 0.0, 0],
 	"metal": ["", Color(0.6, 0.6, 0.62), Color(0.3, 0.3, 0.3), 1.0, 0.35, 0.6, 0.9, 0],
 }
 
@@ -153,9 +154,54 @@ func _garment(slot: String) -> ShaderMaterial:
 		m.set_shader_parameter("view_fill", 0.45)
 	return m
 
+# realistic head and body (MakeHuman CC0 assets, tools/blender/vaynara_build.py)
+func _mh(slot: String) -> ShaderMaterial:
+	var m:= ShaderMaterial.new()
+	var hero: bool = profile.get("hero", false)
+	if slot in ["mh_hair", "mh_brow", "mh_lash", "mh_eye"]:
+		m.shader = preload("res://shaders/hair.gdshader")
+		m.set_shader_parameter("albedo_tex", _tex(slot))
+		match slot:
+			"mh_eye":
+				# the cornea is the transparent part of the texture: alpha tested away, the iris shows through
+				m.set_shader_parameter("color", Color(1, 1, 1))
+				m.set_shader_parameter("desaturate", 0.0)
+				m.set_shader_parameter("alpha_cut", 0.5)
+				m.set_shader_parameter("highlight", 0.0)
+				m.set_shader_parameter("gloss", 1.0)
+			"mh_hair":
+				m.set_shader_parameter("color", profile.get("hair", Color(0.82, 0.64, 0.38)))
+				m.set_shader_parameter("alpha_cut", 0.4)
+			"mh_brow":
+				m.set_shader_parameter("color", profile.get("brow", Color(0.42, 0.32, 0.2)))
+				m.set_shader_parameter("alpha_cut", 0.45)
+				m.set_shader_parameter("flat_color", 1.0)
+				m.set_shader_parameter("highlight", 0.05)
+			"mh_lash":
+				m.set_shader_parameter("color", Color(0.12, 0.1, 0.085))
+				m.set_shader_parameter("flat_color", 1.0)
+				m.set_shader_parameter("alpha_cut", 0.3)
+				m.set_shader_parameter("highlight", 0.0)
+	else:
+		m.shader = preload("res://shaders/character.gdshader")
+		m.set_shader_parameter("detail_tex", _tex("../detail_noise"))
+		m.set_shader_parameter("use_normal", false)
+		m.set_shader_parameter("albedo_tex", _tex("mh_skin"))
+		m.set_shader_parameter("color", profile.get("skin_tint", Color(1.0, 1.0, 1.0)))
+		m.set_shader_parameter("roughness_v", 0.58)
+		m.set_shader_parameter("specular_v", 0.32)
+		m.set_shader_parameter("wet_response", 0.7)
+	if hero:
+		m.set_shader_parameter("rim", 0.85 if slot != "mh_lash" else 0.0)
+		m.set_shader_parameter("fill", 1.8)
+		m.set_shader_parameter("view_fill", 0.45)
+	return m
+
 func _material(slot: String) -> ShaderMaterial:
 	if GARMENTS.has(slot):
 		return _garment(slot)
+	if slot.begins_with("mh_"):
+		return _mh(slot)
 	var m:= ShaderMaterial.new()
 	m.shader = preload("res://shaders/character.gdshader")
 	m.set_shader_parameter("detail_tex", _tex("../detail_noise"))

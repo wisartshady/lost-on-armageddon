@@ -7,10 +7,11 @@ extends SceneTree
 const BASE:= "res://tools/assets/vaynara_base.scn"        # the v0.2.3 model (head, hair, hands, skeleton)
 const OUTFIT:= "/home/claude/work/vay/vaynara_outfit.glb"
 const OUT:= "res://assets/models/characters/vaynara.scn"
-const REMOVE:= ["Hoodie", "Jeans", "Boots", "Collar", "Hood", "Strings"]
+const REMOVE:= ["Hoodie", "Jeans", "Boots", "Collar", "Hood", "Strings", "Head", "Body", "Eyes", "Brows", "Hair"]
 # material slot per garment (scripts/actors/character.gd: _material)
 const SLOT:= {"Torso": "skin_flat", "CropTop": "crop", "Hoodie": "hoodie", "Zipper": "zipper", "Strings": "string",
-	"Jeans": "denim", "Boots": "leather", "Metal": "metal"}
+	"Jeans": "denim", "Boots": "leather", "Metal": "metal", "Skin": "mh_skin", "Hands": "skin", "Eyes": "mh_eye",
+	"Brows": "mh_brow", "Lashes": "mh_lash", "Hair": "mh_hair"}
 
 
 func _bind_names(skin: Skin, sk: Skeleton3D) -> Array:
@@ -53,6 +54,10 @@ func _init() -> void:
 		var nnames:= _bind_names(nskin, src_sk)
 		var remap:= PackedInt32Array()
 		for nm in nnames:
+			if not index_of.has(nm) and index_of.has(nm.trim_suffix("_2")):
+				nm = nm.trim_suffix("_2")
+			if not index_of.has(nm) and index_of.has(nm + "_2"):
+				nm = nm + "_2"
 			if not index_of.has(nm):
 				push_error("bone not in the original skin: " + nm)
 			remap.append(index_of.get(nm, 0))
