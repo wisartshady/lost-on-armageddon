@@ -55,6 +55,7 @@ func build() -> void:
 			progress.emit(0.1 + 0.6 * float(i) / n, "LOADING_CITY")
 			await get_tree().process_frame
 	_build_patches()
+	_build_interiors()
 	_build_instanced()
 	_build_vehicles()
 	_build_surface_lookup()
@@ -73,6 +74,41 @@ func build() -> void:
 	apply_settings()
 	Settings.changed.connect(func (_s): apply_settings())
 	progress.emit(1.0, "LOADING_CITY")
+
+# Furnished 3D rooms behind the shop windows (tools/shop_interiors.py -> tools/build_shop_interiors.gd). The shop glass
+# (shaders/shop_window.gdshader) turns opaque before ROOM_RANGE, so rooms simply stop being drawn there.
+const ROOM_RANGE:= 36.0
+var room_nodes: Array[MeshInstance3D] = []
+
+func _build_interiors() -> void:
+	if not ResourceLoader.exists("res://assets/models/shops/interiors.scn"):
+		return
+	var meta: Array = JSON.parse_string(FileAccess.get_file_as_string("res://data/shop_interiors.json"))
+	var by_name:= {}
+	for m in meta:
+		by_name[m["node"]] = m
+	var root: Node3D = load("res://assets/models/shops/interiors.scn").instantiate()
+	add_child(root)
+	# one material per room (not instance uniforms: every instance using those reserves 16 slots of a 4096-slot
+	# buffer, which the cars and umbrellas already need)
+	var base: ShaderMaterial = Mats.get_mat("interior")
+	for mi in root.get_children():
+		if not (mi is MeshInstance3D) or not by_name.has(String(mi.name)):
+			continue
+		var m: Dictionary = by_name[String(mi.name)]
+		var mat: ShaderMaterial = base.duplicate()
+		mi.material_override = mat
+		mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		mi.gi_mode = GeometryInstance3D.GI_MODE_DISABLED
+		mi.visibility_range_end = ROOM_RANGE
+		mi.visibility_range_end_margin = 2.0
+		var f: Array = m["front"]
+		var d: Array = m["in"]
+		mat.set_shader_parameter("room_front", Vector4(float(f[0]), float(f[1]), float(f[2]), float(m["type"])))
+		mat.set_shader_parameter("room_in", Vector4(float(d[0]), float(d[1]), float(d[2]), float(m["lit"])))
+		var sz: Array = m["size"]
+		mat.set_shader_parameter("room_size", Vector4(float(sz[0]), float(sz[1]), float(sz[2]), 0.0))
+		room_nodes.append(mi)
 
 # Wall strips that close the see-through gaps above some shop doors and shutters (found by tools/find_shop_gaps.gd)
 func _build_patches() -> void:

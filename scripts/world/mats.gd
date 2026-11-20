@@ -71,11 +71,16 @@ static func _build(name: String) -> Material:
 			m.set_shader_parameter("shop", false)
 			return m
 		"shopwindow":
-			var m:= _shader("res://shaders/window.gdshader")
-			m.set_shader_parameter("shop", true)
+			# real glass over the 3D shop rooms (city.gd: _build_interiors); drawn before the other transparent
+			# things in the street (car glass, umbrellas, rain) since it is always behind them
+			var m:= _shader("res://shaders/shop_window.gdshader")
 			for k in ["back", "side", "mid", "front", "fc"]:
 				m.set_shader_parameter("int_" + k, load("res://assets/textures/int_%s.png" % k))
+			m.set_shader_parameter("near_end", 36.0)
+			m.render_priority = -1
 			return m
+		"interior":
+			return _shader("res://shaders/interior.gdshader")
 		"signs":
 			var m:= _shader("res://shaders/signs.gdshader")
 			m.set_shader_parameter("atlas", load("res://assets/textures/signs_atlas.png"))
