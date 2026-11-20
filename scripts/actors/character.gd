@@ -4,7 +4,7 @@ extends Node3D
 const TEX:= "res://assets/textures/characters/"
 const PROFILES:= {
 	"vaynara": {"model": "vaynara", "skin": "female_fair", "body": "female", "hair_tex": "hair2", "eye": "eye_teal",
-		"hair": Color(0.84, 0.66, 0.45), "top": Color(0.15, 0.16, 0.155), "bottom": Color(0.11, 0.13, 0.19),
+		"hair": Color(1.18, 0.98, 0.66), "top": Color(0.15, 0.16, 0.155), "bottom": Color(0.11, 0.13, 0.19),
 		"shoes": Color(0.055, 0.05, 0.045), "detail": Color(0.78, 0.77, 0.74), "height": 1.7, "hero": true},
 	"gus": {"model": "gus", "skin": "male_light", "body": "male", "hair_tex": "hair1", "eye": "eye_brown",
 		"hair": Color(1.15, 1.13, 1.1), "top": Color(0.24, 0.18, 0.12), "bottom": Color(0.17, 0.16, 0.14),
@@ -117,7 +117,45 @@ func _collect_meshes(n: Node) -> void:
 	for c in n.get_children():
 		_collect_meshes(c)
 
+# separate garments (tools/blender/vaynara_outfit.py): slot -> fabric, colour, inside colour, tiles per metre,
+# roughness, specular, metallic, pattern (0 cloth, 1 zip, 2 skin)
+const GARMENTS:= {
+	"skin_flat": ["", Color(0.72, 0.6, 0.52), Color(0.4, 0.3, 0.26), 1.0, 0.55, 0.35, 0.0, 2],
+	"crop": ["crop", Color(0.6, 0.055, 0.065), Color(0.3, 0.03, 0.035), 4.5, 0.9, 0.3, 0.0, 0],
+	"hoodie": ["hoodie", Color(0.21, 0.21, 0.21), Color(0.34, 0.34, 0.34), 3.7, 0.92, 0.25, 0.0, 0],
+	"zipper": ["", Color(0.07, 0.07, 0.075), Color(0.05, 0.05, 0.05), 1.0, 0.8, 0.3, 0.0, 1],
+	"string": ["crop", Color(0.3, 0.3, 0.31), Color(0.2, 0.2, 0.2), 9.0, 0.9, 0.25, 0.0, 0],
+	"denim": ["denim", Color(0.085, 0.09, 0.115), Color(0.06, 0.065, 0.08), 3.7, 0.9, 0.3, 0.0, 0],
+	"leather": ["leather", Color(0.05, 0.048, 0.047), Color(0.08, 0.07, 0.065), 3.0, 0.42, 0.5, 0.0, 0],
+	"metal": ["", Color(0.6, 0.6, 0.62), Color(0.3, 0.3, 0.3), 1.0, 0.35, 0.6, 0.9, 0],
+}
+
+func _garment(slot: String) -> ShaderMaterial:
+	var g: Array = GARMENTS[slot]
+	var m:= ShaderMaterial.new()
+	m.shader = preload("res://shaders/garment.gdshader")
+	m.set_shader_parameter("detail_tex", _tex("../detail_noise"))
+	if g[0] != "":
+		m.set_shader_parameter("fabric_tex", _tex("fabric_" + g[0]))
+		m.set_shader_parameter("fabric_n", _tex("fabric_" + g[0] + "_n"))
+	else:
+		m.set_shader_parameter("use_fabric", false)
+	m.set_shader_parameter("color", g[1])
+	m.set_shader_parameter("inner_color", g[2])
+	m.set_shader_parameter("tile", g[3])
+	m.set_shader_parameter("roughness_v", g[4])
+	m.set_shader_parameter("specular_v", g[5])
+	m.set_shader_parameter("metallic_v", g[6])
+	m.set_shader_parameter("pattern", g[7])
+	if profile.get("hero", false):
+		m.set_shader_parameter("rim", 0.85)
+		m.set_shader_parameter("fill", 1.8)
+		m.set_shader_parameter("view_fill", 0.45)
+	return m
+
 func _material(slot: String) -> ShaderMaterial:
+	if GARMENTS.has(slot):
+		return _garment(slot)
 	var m:= ShaderMaterial.new()
 	m.shader = preload("res://shaders/character.gdshader")
 	m.set_shader_parameter("detail_tex", _tex("../detail_noise"))
